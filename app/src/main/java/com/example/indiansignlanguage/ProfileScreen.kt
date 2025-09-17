@@ -104,7 +104,7 @@ fun ProfileHeader() {
         }
         Spacer(Modifier.height(16.dp))
         Text(
-            text = "Priya Sharma",
+            text = "Priya Sharama",
             fontSize = 26.sp,
             fontWeight = FontWeight.Bold,
             color = darkText
