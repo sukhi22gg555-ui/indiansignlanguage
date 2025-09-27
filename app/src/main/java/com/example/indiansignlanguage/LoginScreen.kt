@@ -27,12 +27,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.indiansignlanguage.ui.theme.IndianSignLanguageTheme
+import androidx.navigation.NavController
+
 
 @Composable
-fun LoginScreen() {
+fun LoginScreen(navController: NavController) {
     // We use mutableStateOf to have Compose remember what the user types.
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
@@ -41,7 +41,7 @@ fun LoginScreen() {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(horizontal = 32.dp), // Add padding on the left and right
+            .padding(horizontal = 33.dp), // Add padding on the left and right
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
@@ -117,17 +117,10 @@ fun LoginScreen() {
         Row {
             Text("Don't have an account?")
             Spacer(modifier = Modifier.width(4.dp))
-            TextButton(onClick = { /* TODO: Navigate to Sign Up screen */ }) {
+            TextButton(onClick = {navController.navigate("signup")}) {
                 Text("Sign Up")
             }
         }
     }
 }
 
-@Preview(showBackground = true)
-@Composable
-fun LoginScreenPreview() {
-    IndianSignLanguageTheme {
-        LoginScreen()
-    }
-}
