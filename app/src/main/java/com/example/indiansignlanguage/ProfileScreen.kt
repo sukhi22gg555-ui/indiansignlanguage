@@ -6,13 +6,10 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.EmojiEvents
+import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Settings
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.Icon
-import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
+import androidx.compose.material3.*
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -20,12 +17,15 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import coil.compose.AsyncImage
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
+import com.example.indiansignlanguage.data.UserProfile
+import com.example.indiansignlanguage.utils.FirebaseUtils
+import kotlinx.coroutines.launch
 
 // Define colors for easy access and modification
 val primaryBlue = Color(0xFF0D62FF)
@@ -35,68 +35,111 @@ val lightText = Color(0xFF75819D)
 val backgroundColor = Color(0xFFF7F9FC)
 
 @Composable
-fun ProfileScreen() {
+fun ProfileScreen(navController: NavController) {
+    var userProfile by remember { mutableStateOf<UserProfile?>(null) }
+    var isLoading by remember { mutableStateOf(true) }
+    val coroutineScope = rememberCoroutineScope()
+
+    // Load user profile when screen opens
+    LaunchedEffect(Unit) {
+        coroutineScope.launch {
+            FirebaseUtils.getUserProfile().fold(
+                onSuccess = { profile ->
+                    userProfile = profile
+                    isLoading = false
+                },
+                onFailure = {
+                    isLoading = false
+                }
+            )
+        }
+    }
+
     Surface(
         modifier = Modifier.fillMaxSize(),
         color = backgroundColor
     ) {
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(top = 40.dp, bottom = 24.dp, start = 24.dp, end = 24.dp),
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            Text(
-                text = "ISL Connect",
-                fontSize = 18.sp,
-                fontWeight = FontWeight.Bold,
-                color = darkText
-            )
+        if (isLoading) {
+            Box(
+                modifier = Modifier.fillMaxSize(),
+                contentAlignment = Alignment.Center
+            ) {
+                CircularProgressIndicator(color = primaryBlue)
+            }
+        } else {
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(top = 40.dp, bottom = 24.dp, start = 24.dp, end = 24.dp),
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                Text(
+                    text = "ISL Connect",
+                    fontSize = 18.sp,
+                    fontWeight = FontWeight.Bold,
+                    color = darkText
+                )
 
-            Spacer(Modifier.height(32.dp))
+                Spacer(Modifier.height(32.dp))
 
-            ProfileHeader()
+                ProfileHeader(userProfile)
 
-            Spacer(Modifier.weight(1f))
+                Spacer(Modifier.weight(1f))
 
-            ProgressCircle(progress = 0.4f) // Represents 40%
+                ProgressCircle(userProfile = userProfile)
 
-            Spacer(Modifier.weight(1f))
+                Spacer(Modifier.weight(1f))
 
-            ActionButtons()
+                ActionButtons()
+            }
         }
     }
 }
 
 @Composable
-fun ProfileHeader() {
+fun ProfileHeader(userProfile: UserProfile?) {
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
         Row(
             verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier.fillMaxWidth()
         ) {
-            // Using Coil's AsyncImage to load a picture from a URL.
-            // Replace the URL with a real one if you have it.
-            AsyncImage(
-                model = "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80",
-                contentDescription = "Priya Sharma's profile picture",
-                contentScale = ContentScale.Crop,
+            // Profile picture placeholder
+            Surface(
                 modifier = Modifier
                     .size(80.dp)
-                    .clip(CircleShape)
-            )
+                    .clip(CircleShape),
+                color = lightBlue
+            ) {
+                Box(
+                    contentAlignment = Alignment.Center,
+                    modifier = Modifier.fillMaxSize()
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.Person,
+                        contentDescription = "Profile",
+                        tint = primaryBlue,
+                        modifier = Modifier.size(40.dp)
+                    )
+                }
+            }
 
             Spacer(Modifier.width(20.dp))
 
             Column {
                 Text(
-                    text = "Signs Learned: 152",
+                    text = "Lessons Completed: ${userProfile?.totalLessonsCompleted ?: 0}",
                     color = lightText,
                     fontSize = 16.sp
                 )
                 Spacer(Modifier.height(8.dp))
                 Text(
-                    text = "Modules Completed: 8/20",
+                    text = "Total Score: ${userProfile?.totalScore ?: 0}",
+                    color = lightText,
+                    fontSize = 16.sp
+                )
+                Spacer(Modifier.height(8.dp))
+                Text(
+                    text = "Current Level: ${userProfile?.currentLevel ?: 1}",
                     color = lightText,
                     fontSize = 16.sp
                 )
@@ -104,7 +147,7 @@ fun ProfileHeader() {
         }
         Spacer(Modifier.height(16.dp))
         Text(
-            text = "Priya Sharama",
+            text = userProfile?.fullName ?: "Loading...",
             fontSize = 26.sp,
             fontWeight = FontWeight.Bold,
             color = darkText
@@ -113,7 +156,12 @@ fun ProfileHeader() {
 }
 
 @Composable
-fun ProgressCircle(progress: Float) {
+fun ProgressCircle(userProfile: UserProfile?) {
+    // Calculate progress based on lessons completed (assume 100 lessons total)
+    val totalLessonsTarget = 100
+    val completedLessons = userProfile?.totalLessonsCompleted ?: 0
+    val progress = (completedLessons.toFloat() / totalLessonsTarget).coerceAtMost(1f)
+    
     Box(
         contentAlignment = Alignment.Center,
         modifier = Modifier.size(220.dp)
@@ -138,12 +186,21 @@ fun ProgressCircle(progress: Float) {
                 style = Stroke(width = 25f, cap = StrokeCap.Round)
             )
         }
-        Text(
-            text = "${(progress * 100).toInt()}%",
-            fontSize = 48.sp,
-            fontWeight = FontWeight.ExtraBold,
-            color = darkText
-        )
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Text(
+                text = "${(progress * 100).toInt()}%",
+                fontSize = 48.sp,
+                fontWeight = FontWeight.ExtraBold,
+                color = darkText
+            )
+            Text(
+                text = "$completedLessons/$totalLessonsTarget lessons",
+                fontSize = 14.sp,
+                color = lightText
+            )
+        }
     }
 }
 
@@ -191,5 +248,5 @@ fun ActionButton(icon: ImageVector, text: String) {
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
 fun ProfileScreenPreview() {
-    ProfileScreen()
+    ProfileScreen(navController = rememberNavController())
 }
