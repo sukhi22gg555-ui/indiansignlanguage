@@ -32,7 +32,7 @@ data class NumberItem(val number: Int, val icon: ImageVector, val videoResId: In
 // --- Main Composable for the Screen ---
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun NumbersScreen() {
+fun NumbersScreen(navController: androidx.navigation.NavController) {
     // A list of numbers from 0 to 9 with placeholder icons and video IDs.
     // Replace '0' with your actual resource IDs, like `R.raw.video_0`.
     val numberItems = listOf(
@@ -56,7 +56,7 @@ fun NumbersScreen() {
             TopAppBar(
                 title = { Text("Numbers") },
                 navigationIcon = {
-                    IconButton(onClick = { /* Handle back press */ }) {
+                    IconButton(onClick = { navController.popBackStack() }) {
                         Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")
                     }
                 },
@@ -188,7 +188,7 @@ fun VideoPlayer(videoResId: Int) {
 @Composable
 fun NumbersScreenPreview() {
     MaterialTheme {
-        NumbersScreen()
+        NumbersScreen(navController = androidx.navigation.compose.rememberNavController())
     }
 }
 

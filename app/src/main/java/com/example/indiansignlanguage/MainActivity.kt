@@ -35,6 +35,15 @@ class MainActivity : ComponentActivity() {
                         composable("profile") {
                             ProfileScreen(navController = navController)
                         }
+                        composable("modules") {
+                            Modules(navController = navController)
+                        }
+                        composable("numbers") {
+                            NumbersScreen(navController = navController)
+                        }
+                        composable("greetings") {
+                            GreetingsScreen(navController = navController)
+                        }
                     }
                 }
             }

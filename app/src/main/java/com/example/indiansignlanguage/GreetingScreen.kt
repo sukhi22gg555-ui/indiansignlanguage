@@ -27,7 +27,7 @@ data class GreetingItem(val text: String, val icon: ImageVector)
 // --- Main Composable for the Greetings Screen ---
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun GreetingsScreen() {
+fun GreetingsScreen(navController: androidx.navigation.NavController) {
     // A list of greetings with placeholder icons.
     val greetingItems = listOf(
         GreetingItem("Hello", Icons.Default.WavingHand),
@@ -46,7 +46,7 @@ fun GreetingsScreen() {
             TopAppBar(
                 title = { Text("Greetings", color = Color.White) },
                 navigationIcon = {
-                    IconButton(onClick = { /* Handle back press */ }) {
+                    IconButton(onClick = { navController.popBackStack() }) {
                         Icon(
                             Icons.AutoMirrored.Filled.ArrowBack,
                             contentDescription = "Back",
@@ -158,6 +158,6 @@ fun GreetingDetailDialog(item: GreetingItem, onDismiss: () -> Unit) {
 @Composable
 fun GreetingsScreenPreview() {
     MaterialTheme {
-        GreetingsScreen()
+        GreetingsScreen(navController = androidx.navigation.compose.rememberNavController())
     }
 }

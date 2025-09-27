@@ -94,8 +94,8 @@ fun HomeScreen(navController: NavController) {
     )
 
     Scaffold(
-        topBar = { TopBar() },
-        bottomBar = { BottomNavigationBar() },
+        topBar = { TopBar(navController) },
+        bottomBar = { BottomNavigationBar(navController) },
         containerColor = Color(0xFFF2F2F7)
     ) { paddingValues ->
         Column(
@@ -107,9 +107,9 @@ fun HomeScreen(navController: NavController) {
             Spacer(modifier = Modifier.height(10.dp))
             SearchBar()
             Spacer(modifier = Modifier.height(20.dp))
-            QuickAccessSection()
+            QuickAccessSection(navController)
             Spacer(modifier = Modifier.height(25.dp))
-            ProgressSection(progress = userProgress)
+            ProgressSection(progress = userProgress, navController = navController)
             Spacer(modifier = Modifier.height(25.dp))
             LearningHubSection(items = learningHubItems)
             Spacer(modifier = Modifier.height(20.dp))
@@ -119,11 +119,11 @@ fun HomeScreen(navController: NavController) {
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun TopBar() {
+fun TopBar(navController: NavController) {
     TopAppBar(
         title = { Text("Indian Sign Language", fontWeight = FontWeight.SemiBold) },
         navigationIcon = {
-            IconButton(onClick = { /* Handle back press */ }) {
+            IconButton(onClick = { navController.popBackStack() }) {
                 Icon(Icons.Default.ArrowBack, contentDescription = "Back")
             }
         },
@@ -166,7 +166,7 @@ fun SearchBar() {
 }
 
 @Composable
-fun QuickAccessSection() {
+fun QuickAccessSection(navController: NavController) {
     Column {
         Text("Quick Access", fontSize = 20.sp, fontWeight = FontWeight.Bold)
         Spacer(modifier = Modifier.height(15.dp))
@@ -174,16 +174,18 @@ fun QuickAccessSection() {
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
-            QuickAccessItem(icon = Icons.Default.Person, text = "Greetings") // Placeholder icon
-            QuickAccessItem(icon = Icons.Default.Book, text = "Learn on Words")
-            QuickAccessItem(icon = Icons.Default.Person, text = "Daily Practice") // Placeholder icon
+            QuickAccessItem(icon = Icons.Default.Person, text = "Greetings") { navController.navigate("greetings") }
+            QuickAccessItem(icon = Icons.Default.Book, text = "Numbers") { navController.navigate("numbers") }
+            QuickAccessItem(icon = Icons.Default.Person, text = "All Modules") { navController.navigate("modules") }
         }
     }
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun QuickAccessItem(icon: ImageVector, text: String) {
+fun QuickAccessItem(icon: ImageVector, text: String, onClick: () -> Unit) {
     Card(
+        onClick = onClick,
         shape = RoundedCornerShape(12.dp),
         colors = CardDefaults.cardColors(containerColor = Color.White),
         elevation = CardDefaults.cardElevation(defaultElevation = 0.dp),
@@ -205,7 +207,7 @@ fun QuickAccessItem(icon: ImageVector, text: String) {
 }
 
 @Composable
-fun ProgressSection(progress: UserProgress) {
+fun ProgressSection(progress: UserProgress, navController: NavController) {
     Column {
         Text("Your Progress", fontSize = 20.sp, fontWeight = FontWeight.Bold)
         Spacer(modifier = Modifier.height(15.dp))
@@ -235,7 +237,7 @@ fun ProgressSection(progress: UserProgress) {
                         Text("Signs Learning: ${progress.modules} Modules", fontSize = 12.sp, color = Color(0xFF8E8E93))
                         Spacer(modifier = Modifier.height(8.dp))
                         Button(
-                            onClick = { /*TODO*/ },
+                            onClick = { navController.navigate("modules") },
                             shape = RoundedCornerShape(8.dp),
                             contentPadding = PaddingValues(horizontal = 12.dp, vertical = 6.dp),
                             colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF007AFF))
@@ -298,7 +300,7 @@ fun LearningHubItem(item: LearningItem) {
 
 
 @Composable
-fun BottomNavigationBar() {
+fun BottomNavigationBar(navController: NavController) {
     NavigationBar(
         containerColor = Color.White
     ) {
@@ -306,7 +308,7 @@ fun BottomNavigationBar() {
             icon = { Icon(Icons.Default.Home, contentDescription = "Home") },
             label = { Text("Home") },
             selected = true,
-            onClick = { /*TODO*/ },
+            onClick = { /* Already on Home */ },
             colors = NavigationBarItemDefaults.colors(
                 selectedIconColor = Color(0xFF007AFF),
                 selectedTextColor = Color(0xFF007AFF),
@@ -314,22 +316,22 @@ fun BottomNavigationBar() {
             )
         )
         NavigationBarItem(
-            icon = { Icon(Icons.Default.Book, contentDescription = "Modules") }, // Placeholder
+            icon = { Icon(Icons.Default.Book, contentDescription = "Modules") },
             label = { Text("Modules") },
             selected = false,
-            onClick = { /*TODO*/ }
+            onClick = { navController.navigate("modules") }
         )
         NavigationBarItem(
-            icon = { Icon(Icons.Default.Search, contentDescription = "Translator") }, // Placeholder
+            icon = { Icon(Icons.Default.Search, contentDescription = "Translator") },
             label = { Text("Translator") },
             selected = false,
-            onClick = { /*TODO*/ }
+            onClick = { /* TODO: Add translator screen */ }
         )
         NavigationBarItem(
             icon = { Icon(Icons.Default.Person, contentDescription = "Profile") },
             label = { Text("Profile") },
             selected = false,
-            onClick = { /*TODO*/ }
+            onClick = { navController.navigate("profile") }
         )
     }
 }

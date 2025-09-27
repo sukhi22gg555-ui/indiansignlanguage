@@ -1,3 +1,5 @@
+package com.example.indiansignlanguage
+
 // This line tells our file which other pieces of code it needs to use from the Jetpack Compose library.
 // We need these for creating layouts, text, images, icons, etc.
 import androidx.compose.foundation.layout.*
@@ -42,7 +44,7 @@ data class SignCategory(val title: String, val icon: ImageVector)
 // This is the main Composable function that builds the entire screen.
 @OptIn(ExperimentalMaterial3Api::class) // This is needed for some newer Material 3 components.
 @Composable
-fun Modules() {
+fun Modules(navController: androidx.navigation.NavController) {
 
     // --- 1. PREPARE THE DATA ---
     // In a real app, this data would come from the internet or a database.
@@ -60,7 +62,7 @@ fun Modules() {
     // It gives us a place for a top bar and the main content area.
     Scaffold(
         // The `topBar` is the blue bar at the very top of the screen.
-        topBar = { TopBar() },
+        topBar = { ModulesTopBar(navController) },
         // This sets the background color of the main content area.
         containerColor = Color(0xFFF0F2F5)
     ) { paddingValues ->
@@ -83,13 +85,13 @@ fun Modules() {
             Spacer(modifier = Modifier.height(16.dp))
 
             // Add the search bar.
-            SearchBar()
+            ModulesSearchBar()
 
             // Add more empty space.
             Spacer(modifier = Modifier.height(24.dp))
 
             // Add the 2x2 grid of category buttons.
-            CategoryGrid(categoryList = categories)
+            CategoryGrid(categoryList = categories, navController = navController)
         }
     }
 }
@@ -103,11 +105,11 @@ fun Modules() {
  */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun TopBar() {
+fun ModulesTopBar(navController: androidx.navigation.NavController) {
     TopAppBar(
         title = { Text("Indian Sigin Language ", fontWeight = FontWeight.Bold) },
         navigationIcon = {
-            IconButton(onClick = { /* TODO: Handle back button click */ }) {
+            IconButton(onClick = { navController.popBackStack() }) {
                 Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")
             }
         },
@@ -124,7 +126,7 @@ fun TopBar() {
  * Creates the search input field.
  */
 @Composable
-fun SearchBar() {
+fun ModulesSearchBar() {
     // `remember` and `mutableStateOf` create a piece of memory for our Composable.
     // It holds the text that the user types. When the text changes, the UI will update automatically.
     var searchText by remember { mutableStateOf("") }
@@ -151,7 +153,7 @@ fun SearchBar() {
  * Creates the 2x2 grid of category buttons.
  */
 @Composable
-fun CategoryGrid(categoryList: List<SignCategory>) {
+fun CategoryGrid(categoryList: List<SignCategory>, navController: androidx.navigation.NavController) {
     // `LazyVerticalGrid` is a smart grid. It only shows the items that are visible on screen,
     // which is very efficient if you have many items.
     LazyVerticalGrid(
@@ -161,7 +163,14 @@ fun CategoryGrid(categoryList: List<SignCategory>) {
     ) {
         // This tells the grid to create a `CategoryCard` for each item in our `categoryList`.
         items(categoryList) { category ->
-            CategoryCard(category = category)
+            CategoryCard(category = category) {
+                when (category.title) {
+                    "Numbers" -> navController.navigate("numbers")
+                    "Greetings" -> navController.navigate("greetings")
+                    "Common Words" -> navController.navigate("greetings") // Use greetings for now
+                    "Alphabets" -> navController.navigate("greetings") // Use greetings for now
+                }
+            }
         }
     }
 }
@@ -169,10 +178,12 @@ fun CategoryGrid(categoryList: List<SignCategory>) {
 /**
  * Creates a single white, square card for a category.
  */
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun CategoryCard(category: SignCategory) {
+fun CategoryCard(category: SignCategory, onClick: () -> Unit) {
     // `Card` gives us a nice-looking container with a shadow and rounded corners.
     Card(
+        onClick = onClick,
         modifier = Modifier.aspectRatio(1f), // This forces the card to be a perfect square.
         shape = RoundedCornerShape(12.dp),
         colors = CardDefaults.cardColors(containerColor = Color.White),
@@ -206,6 +217,6 @@ fun CategoryCard(category: SignCategory) {
 @Preview(showBackground = true, device = "id:pixel_6")
 @Composable
 fun ISLConnectScreenPreview() {
-    Modules()
+    Modules(navController = androidx.navigation.compose.rememberNavController())
 }
 
