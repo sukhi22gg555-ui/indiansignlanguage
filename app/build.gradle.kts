@@ -45,6 +45,9 @@ dependencies {
     implementation("androidx.media3:media3-ui:1.3.1")
     implementation("androidx.compose.material:material-icons-extended-android:1.6.8")
     implementation("io.coil-kt:coil-compose:2.6.0")
+    
+    // WebView for Avatar
+    implementation("androidx.webkit:webkit:1.8.0")
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)

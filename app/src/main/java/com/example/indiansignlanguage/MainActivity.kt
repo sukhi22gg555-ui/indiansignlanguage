@@ -44,6 +44,9 @@ class MainActivity : ComponentActivity() {
                         composable("greetings") {
                             GreetingsScreen(navController = navController)
                         }
+                        composable("translator") {
+                            TranslatorScreen(navController = navController)
+                        }
                     }
                 }
             }

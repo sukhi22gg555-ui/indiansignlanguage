@@ -325,7 +325,7 @@ fun BottomNavigationBar(navController: NavController) {
             icon = { Icon(Icons.Default.Search, contentDescription = "Translator") },
             label = { Text("Translator") },
             selected = false,
-            onClick = { /* TODO: Add translator screen */ }
+            onClick = { navController.navigate("translator") }
         )
         NavigationBarItem(
             icon = { Icon(Icons.Default.Person, contentDescription = "Profile") },

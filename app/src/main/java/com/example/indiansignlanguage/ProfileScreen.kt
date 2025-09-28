@@ -4,9 +4,13 @@ import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.filled.Book
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.EmojiEvents
+import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Person
+import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -34,6 +38,7 @@ val darkText = Color(0xFF1D2B4F)
 val lightText = Color(0xFF75819D)
 val backgroundColor = Color(0xFFF7F9FC)
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ProfileScreen(navController: NavController) {
     var userProfile by remember { mutableStateOf<UserProfile?>(null) }
@@ -55,13 +60,38 @@ fun ProfileScreen(navController: NavController) {
         }
     }
 
-    Surface(
-        modifier = Modifier.fillMaxSize(),
-        color = backgroundColor
-    ) {
+    Scaffold(
+        topBar = {
+            TopAppBar(
+                title = { 
+                    Text(
+                        "Profile", 
+                        fontWeight = FontWeight.SemiBold,
+                        color = darkText
+                    ) 
+                },
+                navigationIcon = {
+                    IconButton(onClick = { navController.popBackStack() }) {
+                        Icon(
+                            Icons.AutoMirrored.Filled.ArrowBack, 
+                            contentDescription = "Back",
+                            tint = darkText
+                        )
+                    }
+                },
+                colors = TopAppBarDefaults.topAppBarColors(
+                    containerColor = Color.Transparent
+                )
+            )
+        },
+        bottomBar = { ProfileBottomNavigationBar(navController) },
+        containerColor = backgroundColor
+    ) { paddingValues ->
         if (isLoading) {
             Box(
-                modifier = Modifier.fillMaxSize(),
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(paddingValues),
                 contentAlignment = Alignment.Center
             ) {
                 CircularProgressIndicator(color = primaryBlue)
@@ -70,27 +100,23 @@ fun ProfileScreen(navController: NavController) {
             Column(
                 modifier = Modifier
                     .fillMaxSize()
-                    .padding(top = 40.dp, bottom = 24.dp, start = 24.dp, end = 24.dp),
+                    .padding(paddingValues)
+                    .padding(horizontal = 24.dp),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                Text(
-                    text = "ISL Connect",
-                    fontSize = 18.sp,
-                    fontWeight = FontWeight.Bold,
-                    color = darkText
-                )
-
-                Spacer(Modifier.height(32.dp))
+                Spacer(Modifier.height(16.dp))
 
                 ProfileHeader(userProfile)
 
-                Spacer(Modifier.weight(1f))
+                Spacer(Modifier.height(32.dp))
 
                 ProgressCircle(userProfile = userProfile)
 
-                Spacer(Modifier.weight(1f))
+                Spacer(Modifier.height(32.dp))
 
-                ActionButtons()
+                ActionButtons(navController)
+
+                Spacer(Modifier.height(16.dp))
             }
         }
     }
@@ -206,7 +232,7 @@ fun ProgressCircle(userProfile: UserProfile?) {
 
 
 @Composable
-fun ActionButtons() {
+fun ActionButtons(navController: NavController) {
     Card(
         modifier = Modifier.fillMaxWidth(),
         elevation = CardDefaults.cardElevation(defaultElevation = 0.dp),
@@ -241,6 +267,70 @@ fun ActionButton(icon: ImageVector, text: String) {
             color = if (text == "Achievements") primaryBlue else lightText,
             fontSize = 14.sp,
             fontWeight = FontWeight.Medium
+        )
+    }
+}
+
+@Composable
+fun ProfileBottomNavigationBar(navController: NavController) {
+    NavigationBar(
+        containerColor = Color.White
+    ) {
+        NavigationBarItem(
+            icon = { Icon(Icons.Default.Home, contentDescription = "Home") },
+            label = { Text("Home") },
+            selected = false,
+            onClick = { 
+                navController.navigate("Home") {
+                    popUpTo(navController.graph.startDestinationId) {
+                        saveState = true
+                    }
+                    launchSingleTop = true
+                    restoreState = true
+                }
+            },
+            colors = NavigationBarItemDefaults.colors(
+                unselectedIconColor = lightText,
+                unselectedTextColor = lightText,
+                selectedIconColor = primaryBlue,
+                selectedTextColor = primaryBlue
+            )
+        )
+        NavigationBarItem(
+            icon = { Icon(Icons.Default.Book, contentDescription = "Modules") },
+            label = { Text("Modules") },
+            selected = false,
+            onClick = { navController.navigate("modules") },
+            colors = NavigationBarItemDefaults.colors(
+                unselectedIconColor = lightText,
+                unselectedTextColor = lightText,
+                selectedIconColor = primaryBlue,
+                selectedTextColor = primaryBlue
+            )
+        )
+        NavigationBarItem(
+            icon = { Icon(Icons.Default.Search, contentDescription = "Translator") },
+            label = { Text("Translator") },
+            selected = false,
+            onClick = { navController.navigate("translator") },
+            colors = NavigationBarItemDefaults.colors(
+                unselectedIconColor = lightText,
+                unselectedTextColor = lightText,
+                selectedIconColor = primaryBlue,
+                selectedTextColor = primaryBlue
+            )
+        )
+        NavigationBarItem(
+            icon = { Icon(Icons.Default.Person, contentDescription = "Profile") },
+            label = { Text("Profile") },
+            selected = true,
+            onClick = { /* Already on Profile */ },
+            colors = NavigationBarItemDefaults.colors(
+                unselectedIconColor = lightText,
+                unselectedTextColor = lightText,
+                selectedIconColor = primaryBlue,
+                selectedTextColor = primaryBlue
+            )
         )
     }
 }
