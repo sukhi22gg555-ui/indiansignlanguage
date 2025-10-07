@@ -1,0 +1,13 @@
+<!---->
+<sigml>
+	<hns_sign gloss="">
+		<hamnosys_nonmanual><hnm_body tag="TF"/><hnm_shoulder tag=""/><hnm_head tag="PF"/><hnm_mouthpicture picture=""/><hnm_eyegaze tag=""/><hnm_eyebrows tag=""/><hnm_nose tag=""/><hnm_eyelids tag="TB"/></hamnosys_nonmanual>
+		<hamnosys_manual>
+			<hampinch12open/>
+			<hamextfingerl/>
+			<hampalml/>
+			<hamlips/>
+		</hamnosys_manual>
+	</hns_sign>
+
+</sigml>

@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">indiansignlanguage</string>
+    <string name="app_name">Indian Sign Language</string>
+    <string name="app_description">Learn Indian Sign Language with interactive lessons and practice modules</string>
 </resources>

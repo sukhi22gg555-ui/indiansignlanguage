@@ -1,0 +1,27 @@
+<sigml>   <!--  --><hns_sign gloss="renew" > <hamnosys_nonmanual></hamnosys_nonmanual><hamnosys_manual><hamsymmpar/><hamfist/><hamparbegin/><hamextfingerui/><hampalml/><hamplus/><hamextfingero/><hampalmr/><hamparend/><hamparbegin/><hamshoulders/><hamlrat/><hambetween/><hamshoulders/><hamplus/><hamshoulders/><hamparend/><hamreplace/><hamparbegin/><hamextfingero/><hamplus/><hamextfingerui/><hampalmr/><hamparend/><hamparbegin/><hamshoulders/><hamlrat/><hambetween/><hamshoulders/><hamplus/><hamshoulders/><hamparend/></hamnosys_manual>
+</hns_sign><!--  -->  <hns_sign gloss="mug" > <hamnosys_nonmanual><hnm_mouthpicture tag="a@fter"/></hamnosys_nonmanual><hamnosys_manual><hamflathand/><hambetween/><hamfinger2345/><hamthumboutmod/><hamextfingeruo/><hampalmd/><hamshouldertop/><hambetween/><hamhead/><hamlrat/><hamreplace/><hamextfingerdo/><hamparbegin/><hamreplace/><hamextfingero/><hampalmu/><hamshouldertop/><hamlrat/><hamparend/></hamnosys_manual>
+</hns_sign><!---->
+	<hns_sign gloss="again">
+		<hamnosys_nonmanual>
+			<hnm_mouthpicture picture="Vgen"/>
+		</hamnosys_nonmanual>
+		<hamnosys_manual>
+			<hamfinger23spread/>
+			<hamthumbopenmod/>
+			<hamextfingero/>
+			<hampalmu/>
+			<hamshouldertop/>
+			<hamreplace/>
+			<hamfinger2345/>
+			<hamthumbopenmod/>
+			<hammiddlefinger/>
+			<hamfingerstraightmod/>
+			<hamringfinger/>
+			<hamdoublehooked/>
+			<hampinky/>
+			<hamdoublehooked/>
+			<hamextfingero/>
+			<hampalmd/>
+		</hamnosys_manual>
+	</hns_sign><!--  --> <hns_sign gloss="mug" > <hamnosys_nonmanual><hnm_mouthpicture picture="me_Ik"/></hamnosys_nonmanual><hamnosys_manual><hamsymmpar/><hamfist/><hamthumbacrossmod/><hamparbegin/><hamextfingero/><hampalml/><hamplus/><hamextfingeror/><hampalmr/><hamparend/><hamparbegin/><hamfingerbase/><hamindexfinger/><hamplus/><hamfingerbase/><hampinky/><hamparend/><hamtouch/><hamshouldertop/><hambetween/><hamshoulders/><hamreplace/><hamparbegin/><hamextfingerl/><hampalml/><hamplus/><hamextfingerr/><hampalmr/><hamparend/><hamparbegin/><hamfingerbase/><hamthumb/><hamplus/><hamfingerbase/><hampinky/><hamparend/><hamtouch/><hamshouldertop/><hambetween/><hamshoulders/></hamnosys_manual></hns_sign>
+</sigml>

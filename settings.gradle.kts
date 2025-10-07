@@ -1,5 +1,3 @@
-// In settings.gradle.kts
-
 pluginManagement {
     repositories {
         google()
@@ -10,8 +8,10 @@ pluginManagement {
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
-        google() // <-- THIS LINE IS CRITICAL. MAKE SURE IT'S HERE.
+        google()
         mavenCentral()
+        // Add this line to include the JitPack repository
+        maven { url = uri("https://jitpack.io") }
     }
 }
 rootProject.name = "IndianSignLanguage"

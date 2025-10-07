@@ -21,6 +21,7 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import android.util.Log
 import androidx.compose.ui.unit.sp
 // This is the line that fixes the error. It tells the code where to find your project's resources (like images).
 
@@ -45,6 +46,11 @@ data class SignCategory(val title: String, val icon: ImageVector)
 @OptIn(ExperimentalMaterial3Api::class) // This is needed for some newer Material 3 components.
 @Composable
 fun Modules(navController: androidx.navigation.NavController) {
+    
+    // Log when Modules screen loads
+    LaunchedEffect(Unit) {
+        Log.d("Navigation", "Modules composable loaded and displayed")
+    }
 
     // --- 1. PREPARE THE DATA ---
     // In a real app, this data would come from the internet or a database.
@@ -167,8 +173,8 @@ fun CategoryGrid(categoryList: List<SignCategory>, navController: androidx.navig
                 when (category.title) {
                     "Numbers" -> navController.navigate("numbers")
                     "Greetings" -> navController.navigate("greetings")
-                    "Common Words" -> navController.navigate("greetings") // Use greetings for now
-                    "Alphabets" -> navController.navigate("greetings") // Use greetings for now
+                    "Common Words" -> navController.navigate("commonwords")
+                    "Alphabets" -> navController.navigate("alphabets")
                 }
             }
         }

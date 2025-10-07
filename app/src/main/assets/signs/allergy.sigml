@@ -1,0 +1,54 @@
+﻿<!--  -->
+<sigml>
+	<hns_sign gloss="$PROD">
+		<hamnosys_nonmanual>
+			<hnm_mouthpicture picture="&quot;{l@dZi"/>
+			<hnm_head tag="NF"/>
+			<hnm_eyegaze tag="DN"/>
+			<hnm_eyebrows tag="FU"/>
+			<hnm_eyelids tag="SB"/>
+			<hnm_nose tag="WR"/>
+		</hamnosys_nonmanual>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hamparbegin/>
+			<hamflathand/>
+			<hamfingerbendmod/>
+			<hamthumboutmod/>
+			<hambetween/>
+			<hamflathand/>
+			<hamfingerbendmod/>
+			<hamthumbopenmod/>
+			<hamextfingero/>
+			<hambetween/>
+			<hamextfingeri/>
+			<hampalmd/>
+			<hamplus/>
+			<hamfinger2345/>
+			<hamthumboutmod/>
+			<hamextfingero/>
+			<hambetween/>
+			<hamextfingeri/>
+			<hampalmd/>
+			<hamparend/>
+			<hamparbegin/>
+			<hamhandback/>
+			<hamplus/>
+			<hamfingertip/>
+			<hamindexfinger/>
+			<hamparend/>
+			<hamtouch/>
+			<hamparbegin/>
+			<hammovei/>
+			<hamsmallmod/>
+			<hammoveo/>
+			<hamsmallmod/>
+			<hammovei/>
+			<hamsmallmod/>
+			<hamplus/>
+			<hamnomotion/>
+			<hamparend/>
+		</hamnosys_manual>
+	</hns_sign>
+
+</sigml>

@@ -1,0 +1,21 @@
+<!---->
+<sigml>
+	<hns_sign gloss="">
+		<hamnosys_nonmanual>
+			<hnm_mouthpicture picture="mVni:"/>
+			<hnm_head tag="SR"/>
+		</hamnosys_nonmanual>
+		<hamnosys_manual>
+			<hamfinger2/>
+			<hamthumbopenmod/>
+			<hamfingerbendmod/>
+			<hamextfingero/>
+			<hampalmul/>
+			<hamshouldertop/>
+			<hambetween/>
+			<hamneck/>
+			<hamfingerplay/>
+		</hamnosys_manual>
+	</hns_sign>
+
+</sigml>

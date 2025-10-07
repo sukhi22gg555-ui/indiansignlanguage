@@ -1,0 +1,22 @@
+<sigml>
+	<hns_sign gloss="">
+		<hamnosys_nonmanual><hnm_body tag="RR"></hnm_body>
+		</hamnosys_nonmanual>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hamfinger2/>
+			<hamthumbacrossmod/>
+			<hamextfingero/>
+			<hampalmd/>
+			<hamtouch/>
+			<hamshouldertop/>
+			<hammover/>
+			<hamlargemod/>
+			<hammoved/>
+			<hammovel/>
+			<hamlargemod/>
+		</hamnosys_manual>
+	</hns_sign>
+
+
+</sigml>

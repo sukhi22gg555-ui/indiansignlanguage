@@ -1,0 +1,42 @@
+﻿<!--   -->
+
+<sigml>
+	<hns_sign gloss="$PROD">
+		<hamnosys_nonmanual>
+			<hnm_mouthpicture picture="COLIE"/>
+			<hnm_head tag="SL"/><hnm_head tag="SL"/>
+			<hnm_shoulder tag="UB"/>
+		</hamnosys_nonmanual>
+		<hamnosys_manual>
+			<hamsymmpar/>
+			<hamflathand/>
+			<hamfingerbendmod/>
+			<hamthumboutmod/>
+			<hambetween/>
+			<hamflathand/>
+			<hamextfingeru/>
+			<hampalml/>
+			<hamparbegin/>
+			<hamheadtop/>
+			<hamplus/>
+			<hamheadtop/>
+			<hamparend/>
+			<hamreplace/>
+			<hamextfingeru/>
+			<hampalml/>
+			<hamparbegin/>
+			<hammoveol/>
+			<hamparbegin/>
+			<hamreplace/>
+			<hamflathand/>
+			<hamthumboutmod/>
+			<hamextfingero/>
+			<hambetween/>
+			<hamextfingerol/>
+			<hampalml/>
+			<hamparend/>
+			<hamparend/>
+		</hamnosys_manual>
+	</hns_sign>
+
+</sigml>

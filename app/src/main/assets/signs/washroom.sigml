@@ -1,0 +1,7 @@
+<sigml><hns_sign gloss="">
+<!---->
+<hamnosys_nonmanual><hnm_body tag=""/><hnm_shoulder tag=""/><hnm_head tag=""/><hnm_mouthpicture picture="wA:S"/><hnm_eyegaze tag=""/><hnm_eyebrows tag=""/><hnm_nose tag=""/><hnm_eyelids tag=""/></hamnosys_nonmanual><hamnosys_manual><hamflathand/><hamindexfinger/><hamdoublehooked/><hammiddlefinger/><hamdoublehooked/><hamringfinger/><hamdoublehooked/><hamextfingeru/><hampalmd/><hamhead/><hambetween/><hamshouldertop/></hamnosys_manual></hns_sign>
+<hns_sign gloss="">
+<!---->
+<hamnosys_nonmanual><hnm_body tag=""/><hnm_shoulder tag=""/><hnm_head tag=""/><hnm_mouthpicture picture="rum"/><hnm_eyegaze tag=""/><hnm_eyebrows tag=""/><hnm_nose tag=""/><hnm_eyelids tag=""/></hamnosys_nonmanual><hamnosys_manual><hamsymmpar/><hamfinger2/><hamparbegin/><hamextfingerul/><hampalmr/><hamplus/><hamextfingerur/><hampalml/><hamparend/><hamhead/><hambetween/><hamshoulders/><hamparbegin/><hammoveul/><hamsmallmod/><hamplus/><hammoveur/><hamsmallmod/><hamparend/><hamparbegin/><hammoveor/><hamplus/><hammoveol/><hamparend/><hamreplace/><hamparbegin/><hamextfingerul/><hampalml/><hamplus/><hamextfingerur/><hampalmr/><hamparend/><hamshouldertop/></hamnosys_manual></hns_sign>
+</sigml>

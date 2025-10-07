@@ -1,0 +1,20 @@
+<!---->
+<sigml>
+	<hns_sign gloss="">
+		<hamnosys_nonmanual>
+			<hnm_mouthpicture picture="eld@li:"/>
+<hnm_body tag="TF"/>
+
+		</hamnosys_nonmanual>
+		<hamnosys_manual>
+			<hamfist/>
+			<hamextfingero/>
+			<hampalml/>
+			<hamlips/>
+			<hamclose/>
+			<hammoved/>
+			<hamwavy/>
+		</hamnosys_manual>
+	</hns_sign>
+
+</sigml>

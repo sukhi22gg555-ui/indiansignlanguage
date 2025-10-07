@@ -1,0 +1,32 @@
+<!--  -->
+<sigml>
+	<hns_sign gloss="">
+		<hamnosys_nonmanual>
+			<hnm_head tag="NO"/>
+			<hnm_shoulder tag="UB"/>
+			<hnm_eyelids tag="WB"/>
+		</hamnosys_nonmanual>
+				<hamnosys_manual>
+			<hamsymmlr/>
+			<hamfist/>
+			<hamthumbacrossmod/>
+			<hamextfingeru/>
+			<hambetween/>
+			<hamextfingeruo/>
+			<hampalml/>
+			<hamneck/>
+			<hamlrat/>
+			<hammovel/>
+			<hamsmallmod/>
+			<hamfast/>
+			<hamparbegin/>
+			<hamreplace/>
+			<hampalml/>
+			<hamfast/>
+			<hamneck/>
+			<hamparend/>
+			<hamrepeatfromstartseveral/>
+		</hamnosys_manual>
+	</hns_sign>
+
+</sigml>

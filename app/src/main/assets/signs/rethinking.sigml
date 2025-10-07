@@ -1,0 +1,26 @@
+<sigml> <!--  -->  <hns_sign gloss="rethinking" > <hamnosys_nonmanual><hnm_eyelids tag="SB"></hnm_eyelids><hnm_mouthgesture tag ="L05"/></hamnosys_nonmanual><hamnosys_manual><hamfinger2/><hamthumbacrossmod/><hamfingerhookmod/><hambetween/><hamfinger2/><hamthumbacrossmod/><hamfingerstraightmod/><hamextfingeru/><hampalml/><hamforehead/><hamlrbeside/><hambetween/><hamear/><hamlrbeside/><hamcirclel/><hamsmallmod/><hamclockr/><hamrepeatfromstart/></hamnosys_manual></hns_sign><!---->
+	<hns_sign gloss="again">
+		<hamnosys_nonmanual>
+			<hnm_mouthpicture picture="Vgen"/>
+			</hamnosys_nonmanual>
+		<hamnosys_manual>
+			<hamfinger23spread/>
+			<hamthumbopenmod/>
+			<hamextfingero/>
+			<hampalmu/>
+			<hamshouldertop/>
+			<hamreplace/>
+			<hamfinger2345/>
+			<hamthumbopenmod/>
+			<hammiddlefinger/>
+			<hamfingerstraightmod/>
+			<hamringfinger/>
+			<hamdoublehooked/>
+			<hampinky/>
+			<hamdoublehooked/>
+			<hamextfingero/>
+			<hampalmd/>
+		</hamnosys_manual>
+	</hns_sign>
+
+</sigml>

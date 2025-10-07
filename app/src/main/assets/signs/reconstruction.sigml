@@ -1,0 +1,44 @@
+<!--  --><sigml>   <hns_sign gloss="reconstruction" > <hamnosys_nonmanual></hamnosys_nonmanual><hamnosys_manual><hamsymmlr/><hamfingerstraightmod/><hamlargemod/><hamflathand/><hamextfingerl/><hampalmd/><hamparbegin/><hamshoulders/><hambetween/><hamchest/><hamlrat/><hamplus/><hamshoulders/><hambetween/><hamshouldertop/><hamparend/><hammoveu/><hamsmallmod/><hamrepeatfromstart/></hamnosys_manual></hns_sign><hns_sign gloss="again">
+		<hamnosys_nonmanual>
+				</hamnosys_nonmanual>
+		<hamnosys_manual>
+			<hamfinger23spread/>
+			<hamthumbopenmod/>
+			<hamextfingero/>
+			<hampalmu/>
+			<hamshouldertop/>
+			<hamreplace/>
+			<hamfinger2345/>
+			<hamthumbopenmod/>
+			<hammiddlefinger/>
+			<hamfingerstraightmod/>
+			<hamringfinger/>
+			<hamdoublehooked/>
+			<hampinky/>
+			<hamdoublehooked/>
+			<hamextfingero/>
+			<hampalmd/>
+		</hamnosys_manual>
+	</hns_sign> <!--  --> <hns_sign gloss="mug" > <hamnosys_nonmanual><hnm_shoulder tag="UB"></hnm_shoulder><hnm_mouthgesture tag ="L06"/></hamnosys_nonmanual><hamnosys_manual><hamsymmlr/><hamfingerstraightmod/><hamlargemod/><hamfinger2345/><hamthumboutmod/><hamextfingero/><hampalmd/><hamshoulders/><hamreplace/><hampalmu/></hamnosys_manual></hns_sign><!--  -->  <hns_sign gloss="mug" > <hamnosys_nonmanual></hamnosys_nonmanual><hamnosys_manual><hamsymmlr/><hamfingerstraightmod/><hamlargemod/><hamfinger2345/><hamthumboutmod/><hamindexfinger/><hamdoublebent/><hammiddlefinger/><hamdoublebent/><hamringfinger/><hamdoublebent/><hamextfingero/><hampalmd/><hamtouch/><hamshoulders/><hamtwisting/><hamsmallmod/></hamnosys_manual></hns_sign><hns_sign gloss="again">
+		<hamnosys_nonmanual>
+			<hnm_mouthpicture picture="Vgen"/>
+				</hamnosys_nonmanual>
+		<hamnosys_manual>
+			<hamfinger23spread/>
+			<hamthumbopenmod/>
+			<hamextfingero/>
+			<hampalmu/>
+			<hamshouldertop/>
+			<hamreplace/>
+			<hamfinger2345/>
+			<hamthumbopenmod/>
+			<hammiddlefinger/>
+			<hamfingerstraightmod/>
+			<hamringfinger/>
+			<hamdoublehooked/>
+			<hampinky/>
+			<hamdoublehooked/>
+			<hamextfingero/>
+			<hampalmd/>
+		</hamnosys_manual>
+	</hns_sign></sigml>

@@ -1,0 +1,20 @@
+<sigml>
+	<hns_sign gloss="natiionalist">
+		<hamnosys_nonmanual>
+		</hamnosys_nonmanual>
+		<hamnosys_manual>
+			<hamfist/>
+			<hamextfingerl/>
+			<hambetween/>
+			<hamextfingerul/>
+			<hampalml/>
+			<hamshoulders/>
+			<hamclose/>
+			<hammovei/><hamrepeatfromstart/>
+		</hamnosys_manual>
+	</hns_sign>
+ <!--  -->  <hns_sign gloss="mug" > <hamnosys_nonmanual></hamnosys_nonmanual><hamnosys_manual><hamfinger2345/><hamfingerbendmod/><hamthumboutmod/><hamextfingeru/><hampalmd/><hamshouldertop/><hambetween/><hamneck/><hammoveo/><hamsmallmod/>
+</hamnosys_manual></hns_sign><!--  --> <hns_sign gloss="mug" > <hamnosys_nonmanual><hnm_mouthpicture picture="fi:l"/>
+			<hnm_body tag="SI"/>
+			<hnm_eyelids tag="CB"/></hamnosys_nonmanual><hamnosys_manual><hamfinger2345/><hamthumboutmod/><hammiddlefinger/><hamfingerbendmod/><hamextfingerl/><hampalml/><hamshoulders/><hambetween/><hamlrat/><hamshoulders/><hamseqbegin/><hamclose/><hamfingertip/><hamindexfinger/><hamseqend/><hammoveu/><hamsmallmod/><hamrepeatfromstart/></hamnosys_manual></hns_sign><!--  --><hns_sign gloss="mug" > <hamnosys_nonmanual><hnm_mouthpicture picture="&quot;pa@v(r)"/>
+		</hamnosys_nonmanual><hamnosys_manual><hamsymmlr/><hamfingerstraightmod/><hamlargemod/><hamparbegin/><hamfist/><hamplus/><hamflathand/><hambetween/><hamflathand/><hamfingerbendmod/><hamparend/><hamparbegin/><hamextfingerui/><hampalmd/><hamplus/><hamextfingerr/><hampalmd/><hamparend/><hamparbegin/><hamhead/><hamlrat/><hambetween/><hamshouldertop/><hamlrat/><hamplus/><hamshoulders/><hamlrat/><hamclose/><hamparend/><hamnomotion/></hamnosys_manual></hns_sign></sigml>

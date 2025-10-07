@@ -1,0 +1,26 @@
+<!---->
+<sigml>
+	<hns_sign gloss="">
+		<hamnosys_nonmanual>
+			<hnm_eyegaze tag="DN"/>
+		</hamnosys_nonmanual>
+		<hamnosys_manual>
+			<hamfinger2/>
+			<hamthumboutmod/>
+			<hamextfingerul/>
+			<hampalml/>
+			<hamhead/>
+			<hammoved/>
+			<hamlargemod/>
+			<hammoved/>
+			<hamlargemod/>
+			<hammoved/>
+			<hamlargemod/>
+			<hamreplace/>
+			<hamflathand/>
+			<hamextfingerdl/>
+			<hampalml/>
+		</hamnosys_manual>
+	</hns_sign>
+
+</sigml>

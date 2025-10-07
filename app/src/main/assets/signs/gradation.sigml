@@ -1,0 +1,103 @@
+
+
+<sigml>
+	<hns_sign gloss="">
+		<!---->
+		<hamnosys_nonmanual><hnm_body tag="TL"/><hnm_shoulder tag="UL"/><hnm_head tag=""/><hnm_mouthpicture picture="gre"/><hnm_eyegaze tag="DN"/><hnm_eyebrows tag=""/><hnm_nose tag=""/><hnm_eyelids tag="SB"/></hamnosys_nonmanual>
+		<hamnosys_manual>
+			<hamsymmpar/>
+			<hamceeall/>
+			<hamparbegin/>
+			<hamextfingero/>
+			<hampalml/>
+			<hamplus/>
+			<hamextfingero/>
+			<hampalmr/>
+			<hamparend/>
+			<hamparbegin/>
+			<hamlrbeside/>
+			<hamshoulders/>
+			<hamplus/>
+			<hamlrbeside/>
+			<hamshoulders/>
+			<hamparend/>
+			<hamreplace/>
+			<hamparbegin/>
+			<hamextfingero/>
+			<hampalml/>
+			<hamplus/>
+			<hamextfingero/>
+			<hampalmr/>
+			<hamparend/>
+			<hamcross/>
+			<hamlrbeside/>
+			<hamshoulders/>
+		</hamnosys_manual>
+	</hns_sign>
+
+	<hns_sign gloss="">
+		<!---->
+		<hamnosys_nonmanual><hnm_body tag="TL"/><hnm_shoulder tag="UL"/><hnm_head tag=""/><hnm_mouthpicture picture="Ide"/><hnm_eyegaze tag="DN"/><hnm_eyebrows tag=""/><hnm_nose tag=""/><hnm_eyelids tag="SB"/></hamnosys_nonmanual>
+		<hamnosys_manual>
+			<hamsymmpar/>
+			<hamceeall/>
+			<hamparbegin/>
+			<hamextfingero/>
+			<hampalml/>
+			<hamplus/>
+			<hamextfingero/>
+			<hampalmr/>
+			<hamparend/>
+			<hamparbegin/>
+			<hamshoulders/>
+			<hamplus/>
+			<hamlrbeside/>
+			<hamshoulders/>
+			<hamparend/>
+			<hamreplace/>
+			<hamparbegin/>
+			<hamextfingero/>
+			<hampalml/>
+			<hamplus/>
+			<hamextfingero/>
+			<hampalmr/>
+			<hamparend/>
+			<hamcross/>
+			<hamshoulders/>
+		</hamnosys_manual>
+	</hns_sign>
+
+	<hns_sign gloss="">
+	<!---->
+		<hamnosys_nonmanual><hnm_body tag="TL"/><hnm_shoulder tag="UL"/><hnm_head tag=""/><hnm_mouthpicture picture="_ISn"/><hnm_eyegaze tag="DN"/><hnm_eyebrows tag=""/><hnm_nose tag=""/><hnm_eyelids tag="SB"/></hamnosys_nonmanual>
+		<hamnosys_manual>
+			<hamsymmpar/>
+			<hamceeall/>
+			<hamparbegin/>
+			<hamextfingero/>
+			<hampalml/>
+			<hamplus/>
+			<hamextfingero/>
+			<hampalmr/>
+			<hamparend/>
+			<hamparbegin/>
+			<hamshoulders/>
+			<hamlrbeside/>
+			<hamplus/>
+			<hamshoulders/>
+			<hamparend/>
+			<hamreplace/>
+			<hamparbegin/>
+			<hamextfingero/>
+			<hampalml/>
+			<hamplus/>
+			<hamextfingero/>
+			<hampalmr/>
+			<hamparend/>
+			<hamcross/>
+			<hamshoulders/>
+			<hamlrat/>
+		</hamnosys_manual>
+	</hns_sign>
+
+</sigml>

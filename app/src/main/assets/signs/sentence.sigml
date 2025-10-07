@@ -1,0 +1,56 @@
+<!---->
+<sigml>
+	<hns_sign gloss="sentence">
+		<hamnosys_nonmanual>
+			<hnm_head tag="NF"/>
+		</hamnosys_nonmanual>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hamfingerstraightmod/>
+			<hamlargemod/>
+			<hamfinger23/>
+			<hamthumbopenmod/>
+			<hamfingerbendmod/>
+			<hamextfingeru/>
+			<hampalmd/>
+			<hamparbegin/>
+			<hamshoulders/>
+			<hamlrat/>
+			<hambetween/>
+			<hamshoulders/>
+			<hamplus/>
+			<hamlrat/>
+			<hamshoulders/>
+			<hamparend/>
+			<hamparbegin/>
+			<hammover/>
+			<hamlargemod/>
+			<hammovel/>
+			<hamlargemod/>
+			<hammovedr/>
+			<hamsmallmod/>
+			<hamfast/>
+			<hammover/>
+			<hammovel/>
+			<hamlargemod/>
+			<hammover/>
+			<hamlargemod/>
+			<hamplus/>
+			<hammovel/>
+			<hamlargemod/>
+			<hammover/>
+			<hamlargemod/>
+			<hammovedl/>
+			<hamsmallmod/>
+			<hamfast/>
+			<hammovel/>
+			<hammover/>
+			<hamlargemod/>
+			<hammovel/>
+			<hamlargemod/>
+			<hamparend/>
+		</hamnosys_manual>
+
+	</hns_sign>
+
+</sigml>

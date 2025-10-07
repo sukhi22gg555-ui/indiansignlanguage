@@ -1,0 +1,44 @@
+<!---->
+<sigml>
+	<hns_sign gloss="">
+		<hamnosys_nonmanual>
+			<hnm_mouthpicture picture="Qbd_ZIkt"/>
+		</hamnosys_nonmanual>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hamfingerstraightmod/>
+			<hamlargemod/>
+			<hamfinger2345/>
+			<hamthumboutmod/>
+			<hamextfingero/>
+			<hampalmu/>
+			<hamchest/>
+			<hamparbegin/>
+			<hammover/>
+			<hamsmallmod/>
+			<hamarcu/>
+			<hamsmallmod/>
+			<hammover/>
+			<hamsmallmod/>
+			<hamarcu/>
+			<hamsmallmod/>
+			<hammover/>
+			<hamarcu/>
+			<hamsmallmod/>
+			<hamplus/>
+			<hammovel/>
+			<hamsmallmod/>
+			<hamarcu/>
+			<hamsmallmod/>
+			<hammovel/>
+			<hamsmallmod/>
+			<hamarcu/>
+			<hamsmallmod/>
+			<hammovel/>
+			<hamarcu/>
+			<hamsmallmod/>
+			<hamparend/>
+		</hamnosys_manual>
+	</hns_sign>
+
+</sigml>

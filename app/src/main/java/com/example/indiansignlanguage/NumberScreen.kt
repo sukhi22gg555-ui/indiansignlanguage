@@ -1,194 +1,358 @@
 package com.example.indiansignlanguage
-import android.net.Uri
+
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.compose.ui.viewinterop.AndroidView
-import androidx.media3.common.MediaItem
-import androidx.media3.exoplayer.ExoPlayer
-import androidx.media3.ui.PlayerView
+import androidx.navigation.NavController
+import com.example.indiansignlanguage.components.SignMLPlayer
+import com.example.indiansignlanguage.components.SimpleSignCard
 
-// --- Data class to hold number, icon, and video resource ID ---
-// NOTE: You will need to add your video files (e.g., video_0.mp4, video_1.mp4)
-// to your project's `res/raw` directory.
-data class NumberItem(val number: Int, val icon: ImageVector, val videoResId: Int)
+data class NumberItem(
+    val number: Int,
+    val description: String,
+    val signId: String
+)
 
-// --- Main Composable for the Screen ---
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun NumbersScreen(navController: androidx.navigation.NavController) {
-    // A list of numbers from 0 to 9 with placeholder icons and video IDs.
-    // Replace '0' with your actual resource IDs, like `R.raw.video_0`.
-    val numberItems = listOf(
-        NumberItem(0, Icons.Default.Circle, 0),
-        NumberItem(1, Icons.Default.LooksOne, 0),
-        NumberItem(2, Icons.Default.LooksTwo, 0),
-        NumberItem(3, Icons.Default.Looks3, 0),
-        NumberItem(4, Icons.Default.Looks4, 0),
-        NumberItem(5, Icons.Default.Looks5, 0),
-        NumberItem(6, Icons.Default.Looks6, 0),
-        NumberItem(7, Icons.Default.ThumbUp, 0),
-        NumberItem(8, Icons.Default.WavingHand, 0),
-        NumberItem(9, Icons.Default.FrontHand, 0)
-    )
-
-    // State to hold the currently selected number item for the dialog
-    var selectedNumber by remember { mutableStateOf<NumberItem?>(null) }
+fun NumbersScreen(navController: NavController) {
+    var selectedNumber by remember { mutableStateOf<String?>(null) }
+    var currentIndex by remember { mutableStateOf(0) }
+    
+    // Numbers 0-100 with their descriptions
+    val numberItems = remember {
+        (0..100).map { number ->
+            NumberItem(
+                number = number,
+                description = "Sign for number $number",
+                signId = number.toString()
+            )
+        }
+    }
 
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("Numbers") },
+                title = { 
+                    Text(
+                        "Indian Sign Language - Numbers", 
+                        fontWeight = FontWeight.Bold,
+                        color = Color.White
+                    ) 
+                },
                 navigationIcon = {
                     IconButton(onClick = { navController.popBackStack() }) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")
+                        Icon(
+                            Icons.AutoMirrored.Filled.ArrowBack, 
+                            contentDescription = "Back",
+                            tint = Color.White
+                        )
                     }
                 },
-                colors = TopAppBarDefaults.topAppBarColors(containerColor = Color(0xFFF8F9FA))
+                colors = TopAppBarDefaults.topAppBarColors(
+                    containerColor = Color(0xFF4A90E2)
+                )
             )
         },
-        containerColor = Color(0xFFF8F9FA)
+        containerColor = Color(0xFFF0F2F5)
     ) { paddingValues ->
-        LazyColumn(
-            modifier = Modifier
-                .padding(paddingValues)
-                .padding(horizontal = 16.dp, vertical = 8.dp),
-            verticalArrangement = Arrangement.spacedBy(12.dp)
-        ) {
-            items(numberItems) { item ->
-                NumberCard(item = item, onClick = { selectedNumber = item })
-            }
-        }
-
-        selectedNumber?.let { item ->
-            SignDetailDialog(item = item, onDismiss = { selectedNumber = null })
-        }
-    }
-}
-
-// --- Composable for a single number card ---
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-fun NumberCard(item: NumberItem, onClick: () -> Unit) {
-    Card(
-        onClick = onClick,
-        modifier = Modifier.fillMaxWidth(),
-        shape = RoundedCornerShape(12.dp),
-        colors = CardDefaults.cardColors(containerColor = Color.White),
-        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
-    ) {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 24.dp, vertical = 16.dp),
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            // Display only the number in the list item
-            Text(
-                text = item.number.toString(),
-                fontSize = 40.sp,
-                fontWeight = FontWeight.Bold,
-                color = Color(0xFF007AFF)
+        
+        if (selectedNumber != null) {
+            // Individual number view with sequential navigation
+            IndividualNumberView(
+                numberItems = numberItems,
+                currentIndex = currentIndex,
+                onNavigateBack = { selectedNumber = null },
+                onNavigateNext = {
+                    if (currentIndex < numberItems.size - 1) {
+                        currentIndex++
+                        selectedNumber = numberItems[currentIndex].number.toString()
+                    }
+                },
+                onNavigatePrevious = {
+                    if (currentIndex > 0) {
+                        currentIndex--
+                        selectedNumber = numberItems[currentIndex].number.toString()
+                    }
+                },
+                modifier = Modifier.padding(paddingValues)
+            )
+        } else {
+            // Grid view of all numbers
+            NumbersGridView(
+                numberItems = numberItems,
+                onNumberClick = { index ->
+                    currentIndex = index
+                    selectedNumber = numberItems[index].number.toString()
+                },
+                modifier = Modifier.padding(paddingValues)
             )
         }
     }
 }
 
-// --- Composable for the sign detail dialog with Video Player ---
 @Composable
-fun SignDetailDialog(item: NumberItem, onDismiss: () -> Unit) {
-    AlertDialog(
-        onDismissRequest = onDismiss,
-        title = { Text(text = "Sign for: ${item.number}", textAlign = TextAlign.Center, modifier = Modifier.fillMaxWidth()) },
-        text = {
-            Column(
+fun NumbersGridView(
+    numberItems: List<NumberItem>,
+    onNumberClick: (Int) -> Unit,
+    modifier: Modifier = Modifier
+) {
+    LazyColumn(
+        modifier = modifier.fillMaxSize().padding(horizontal = 16.dp),
+        verticalArrangement = Arrangement.spacedBy(16.dp)
+    ) {
+        item {
+            Spacer(modifier = Modifier.height(8.dp))
+            Text(
+                text = "Learn Indian Sign Language Numbers",
+                fontSize = 20.sp,
+                fontWeight = FontWeight.Bold,
+                color = Color(0xFF333333),
+                modifier = Modifier.padding(bottom = 8.dp)
+            )
+            Text(
+                text = "Tap on any number to learn its sign. Navigate through them sequentially.",
+                fontSize = 14.sp,
+                color = Color(0xFF666666),
+                modifier = Modifier.padding(bottom = 16.dp)
+            )
+        }
+        
+        // Group numbers by tens for better organization
+        items(numberItems.chunked(10)) { chunk ->
+            Card(
                 modifier = Modifier.fillMaxWidth(),
-                horizontalAlignment = Alignment.CenterHorizontally,
-                verticalArrangement = Arrangement.Center
+                colors = CardDefaults.cardColors(containerColor = Color.White),
+                elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
+                shape = RoundedCornerShape(12.dp)
             ) {
-                Icon(
-                    imageVector = item.icon,
-                    contentDescription = null,
-                    tint = Color(0xFF007AFF),
-                    modifier = Modifier.size(100.dp)
-                )
-                Spacer(modifier = Modifier.height(16.dp))
-                // Add the video player if a valid video resource is provided
-                if (item.videoResId != 0) {
-                    VideoPlayer(videoResId = item.videoResId)
-                } else {
-                    Text("No video available.", style = MaterialTheme.typography.bodyMedium)
+                Column(
+                    modifier = Modifier.padding(16.dp)
+                ) {
+                    val rangeStart = chunk.first().number
+                    val rangeEnd = chunk.last().number
+                    Text(
+                        text = "Numbers $rangeStart - $rangeEnd",
+                        fontSize = 16.sp,
+                        fontWeight = FontWeight.SemiBold,
+                        color = Color(0xFF333333),
+                        modifier = Modifier.padding(bottom = 12.dp)
+                    )
+                    
+                    // Create rows of numbers (5 per row)
+                    chunk.chunked(5).forEach { rowItems ->
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.spacedBy(8.dp)
+                        ) {
+                            rowItems.forEach { item ->
+                                val actualIndex = numberItems.indexOf(item)
+                                SimpleSignCard(
+                                    signName = item.number.toString(),
+                                    modifier = Modifier
+                                        .weight(1f)
+                                        .aspectRatio(1f),
+                                    onClick = { onNumberClick(actualIndex) }
+                                )
+                            }
+                            // Fill empty spaces if needed
+                            repeat(5 - rowItems.size) {
+                                Spacer(modifier = Modifier.weight(1f))
+                            }
+                        }
+                        
+                        if (rowItems != chunk.chunked(5).last()) {
+                            Spacer(modifier = Modifier.height(8.dp))
+                        }
+                    }
                 }
             }
-        },
-        confirmButton = {
-            Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.Center){
-                TextButton(onClick = onDismiss) { Text("Close") }
-            }
-        },
-        shape = RoundedCornerShape(16.dp)
-    )
-}
-
-// --- Composable for the Video Player ---
-@Composable
-fun VideoPlayer(videoResId: Int) {
-    val context = LocalContext.current
-
-    // 1. Create and remember an ExoPlayer instance
-    val exoPlayer = remember {
-        ExoPlayer.Builder(context).build().apply {
-            val videoUri = Uri.parse("android.resource://${context.packageName}/$videoResId")
-            val mediaItem = MediaItem.fromUri(videoUri)
-            setMediaItem(mediaItem)
-            prepare()
-            playWhenReady = true // Autoplay
         }
-    }
-
-    // 2. A surface for the player to render the video
-    // We use AndroidView to host a traditional Android View (PlayerView)
-    AndroidView(
-        factory = {
-            PlayerView(it).apply {
-                player = exoPlayer
-            }
-        },
-        modifier = Modifier
-            .fillMaxWidth()
-            .aspectRatio(16 / 9f) // Standard 16:9 aspect ratio
-    )
-
-    // 3. Manage the player's lifecycle
-    DisposableEffect(Unit) {
-        onDispose {
-            exoPlayer.release()
+        
+        item {
+            Spacer(modifier = Modifier.height(16.dp))
         }
     }
 }
 
-// --- Preview for Android Studio ---
-@Preview(showBackground = true, widthDp = 360, heightDp = 640)
 @Composable
-fun NumbersScreenPreview() {
-    MaterialTheme {
-        NumbersScreen(navController = androidx.navigation.compose.rememberNavController())
+fun IndividualNumberView(
+    numberItems: List<NumberItem>,
+    currentIndex: Int,
+    onNavigateBack: () -> Unit,
+    onNavigateNext: () -> Unit,
+    onNavigatePrevious: () -> Unit,
+    modifier: Modifier = Modifier
+) {
+val currentItem = numberItems[currentIndex]
+    // Online avatar removed; using offline player only
+    
+    LazyColumn(
+        modifier = modifier
+            .fillMaxSize()
+            .padding(horizontal = 16.dp),
+        verticalArrangement = Arrangement.spacedBy(16.dp)
+    ) {
+        item {
+            Spacer(modifier = Modifier.height(16.dp))
+            
+            // Progress indicator
+            LinearProgressIndicator(
+                progress = { (currentIndex + 1).toFloat() / numberItems.size },
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(8.dp),
+                color = Color(0xFF4CAF50),
+                trackColor = Color(0xFFE0E0E0)
+            )
+            
+            Spacer(modifier = Modifier.height(8.dp))
+            
+            Text(
+                text = "Number ${currentIndex + 1} of ${numberItems.size}",
+                fontSize = 14.sp,
+                color = Color(0xFF666666),
+                textAlign = TextAlign.Center,
+                modifier = Modifier.fillMaxWidth()
+            )
+        }
+        
+        item {
+// Sign player (offline only)
+            SignMLPlayer(
+                signName = currentItem.signId,
+                modifier = Modifier.fillMaxWidth(),
+                autoPlay = true,
+                showControls = true
+            )
+        }
+        
+        item {
+            // Number information
+            Card(
+                modifier = Modifier.fillMaxWidth(),
+                colors = CardDefaults.cardColors(containerColor = Color.White),
+                elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
+                shape = RoundedCornerShape(12.dp)
+            ) {
+                Column(
+                    modifier = Modifier.padding(20.dp),
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ) {
+                    Text(
+                        text = "Number: ${currentItem.number}",
+                        fontSize = 24.sp,
+                        fontWeight = FontWeight.Bold,
+                        color = Color(0xFF4CAF50)
+                    )
+                    
+                    Spacer(modifier = Modifier.height(8.dp))
+                    
+                    Text(
+                        text = currentItem.description,
+                        fontSize = 16.sp,
+                        color = Color(0xFF666666),
+                        textAlign = TextAlign.Center
+                    )
+                    
+                }
+            }
+        }
+        
+        item {
+            // Navigation controls
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                // Previous button
+                OutlinedButton(
+                    onClick = onNavigatePrevious,
+                    enabled = currentIndex > 0,
+                    colors = ButtonDefaults.outlinedButtonColors(
+                        contentColor = Color(0xFF4CAF50)
+                    ),
+                    modifier = Modifier.weight(1f)
+                ) {
+                    Text("Previous")
+                }
+                
+                Spacer(modifier = Modifier.width(16.dp))
+                
+                // Back to grid button
+                OutlinedButton(
+                    onClick = onNavigateBack,
+                    modifier = Modifier.weight(1f)
+                ) {
+                    Text("All Numbers")
+                }
+                
+                Spacer(modifier = Modifier.width(16.dp))
+                
+                // Next button
+                Button(
+                    onClick = onNavigateNext,
+                    enabled = currentIndex < numberItems.size - 1,
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = Color(0xFF4CAF50)
+                    ),
+                    modifier = Modifier.weight(1f)
+                ) {
+                    Text("Next")
+                }
+            }
+        }
+        
+        item {
+            // Completion message for last number
+            if (currentIndex == numberItems.size - 1) {
+                Card(
+                    modifier = Modifier.fillMaxWidth(),
+                    colors = CardDefaults.cardColors(
+                        containerColor = Color(0xFF4CAF50).copy(alpha = 0.1f)
+                    ),
+                    shape = RoundedCornerShape(12.dp)
+                ) {
+                    Column(
+                        modifier = Modifier.padding(16.dp),
+                        horizontalAlignment = Alignment.CenterHorizontally
+                    ) {
+                        Text(
+                            text = "🎉 Congratulations!",
+                            fontSize = 18.sp,
+                            fontWeight = FontWeight.Bold,
+                            color = Color(0xFF4CAF50)
+                        )
+                        
+                        Spacer(modifier = Modifier.height(8.dp))
+                        
+                        Text(
+                            text = "You've completed the Numbers module! You can now count and express numerical values in sign language.",
+                            fontSize = 14.sp,
+                            color = Color(0xFF333333),
+                            textAlign = TextAlign.Center
+                        )
+                    }
+                }
+            }
+        }
+        
+        item {
+            Spacer(modifier = Modifier.height(16.dp))
+        }
     }
 }
 

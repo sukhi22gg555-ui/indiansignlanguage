@@ -1,0 +1,22 @@
+<!---->
+<sigml>
+	<hns_sign gloss="causing">
+		<hamnosys_nonmanual>
+			<hnm_mouthpicture picture="kA:zIN"/>
+		</hamnosys_nonmanual>
+		<hamnosys_manual>
+			<hamfinger23/>
+			<hamthumbacrossmod/>
+			<hamextfingerul/>
+			<hampalmd/>
+			<hamheadtop/>
+			<hamlrbeside/>
+			<hambetween/>
+			<hamear/>
+			<hamlrbeside/>
+			<hamstircw/>
+			<hamstircw/>
+		</hamnosys_manual>
+	</hns_sign>
+
+</sigml>

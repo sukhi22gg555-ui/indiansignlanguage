@@ -1,0 +1,16 @@
+<!----><sigml>	<hns_sign gloss="polo">		<hamnosys_nonmanual>			<hnm_mouthpicture picture="pi:"/>		</hamnosys_nonmanual>		<hamnosys_manual>			<hamsymmlr/>			<hamparbegin/>			<hampinch12/>			<hamplus/>			<hamfinger2/>			<hamthumbacrossmod/>			<hamparend/>			<hamparbegin/>			<hamextfingerul/>			<hamplus/>			<hamextfingeru/>			<hamparend/>			<hamparbegin/>			<hampalmdr/>			<hamplus/>			<hampalmr/>			<hamparend/>			<hamparbegin/>			<hamfingertip/>			<hamplus/>			<hamfingertip/>			<hamparend/>			<hamtouch/>			<hamshoulders/>		</hamnosys_manual>	</hns_sign><!--  -->   <hns_sign gloss="zero" > <hamnosys_nonmanual><hnm_mouthpicture picture="jiro"/></hamnosys_nonmanual><hamnosys_manual><hampinchall/><hamextfingeru/><hampalml/><hamshouldertop/></hamnosys_manual></hns_sign><!---->
+	<hns_sign gloss="$PROD">
+		<hamnosys_nonmanual>
+			<hnm_mouthpicture picture="el"/>
+		</hamnosys_nonmanual>
+		<hamnosys_manual>
+			<hamfinger2/>
+			<hamthumboutmod/>
+			<hamextfingeru/>
+			<hampalmd/>
+			<hamshouldertop/>
+		</hamnosys_manual>
+	</hns_sign>
+<!--  -->   <hns_sign gloss="zero" > <hamnosys_nonmanual><hnm_mouthpicture picture="jiro"/></hamnosys_nonmanual><hamnosys_manual><hampinchall/><hamextfingeru/><hampalml/><hamshouldertop/></hamnosys_manual></hns_sign><!----->
+   <hns_sign gloss="play" > <hamnosys_nonmanual><hnm_body tag="TB"></hnm_body></hamnosys_nonmanual><hamnosys_manual><hamsymmpar/><hamfinger2/><hamthumboutmod/><hampinky/><hamextfingero/><hampalml/><hamtwisting/></hamnosys_manual></hns_sign>
+<!--  -->  <hns_sign gloss="mug" > <hamnosys_nonmanual></hamnosys_nonmanual><hamnosys_manual><hamceeall/><hamextfingeru/><hampalmu/><hambetween/><hampalmdl/><hamshouldertop/><hamlrat/><hamclose/><hamtwisting/><hamplus/><hamfist/><hamindexfinger/><hamfingerhookmod/><hamextfingerr/><hampalml/><hamchest/><hambetween/><hamstomach/><hamlrat/><hamreplace/><hamextfingerl/><hamlrbeside/><hamshouldertop/><hambetween/><hamshouldertop/></hamnosys_manual></hns_sign></sigml>

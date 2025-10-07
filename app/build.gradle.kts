@@ -14,17 +14,33 @@ android {
         minSdk = 24
         targetSdk = 36
         versionCode = 1
-        versionName = "1.0"
+        versionName = "1.0.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    signingConfigs {
+        create("release") {
+            // For production, replace these with your actual keystore details
+            // storeFile = file("path/to/your/keystore.jks")
+            // storePassword = "your-keystore-password"
+            // keyAlias = "your-key-alias"
+            // keyPassword = "your-key-password"
+        }
+    }
+    
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
+            isShrinkResources = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            // signingConfig = signingConfigs.getByName("release")
+        }
+        debug {
+            applicationIdSuffix = ".debug"
+            versionNameSuffix = "-debug"
         }
     }
     compileOptions {
@@ -46,8 +62,6 @@ dependencies {
     implementation("androidx.compose.material:material-icons-extended-android:1.6.8")
     implementation("io.coil-kt:coil-compose:2.6.0")
     
-    // WebView for Avatar
-    implementation("androidx.webkit:webkit:1.8.0")
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)

@@ -1,0 +1,29 @@
+﻿<!--      -->
+
+
+
+<sigml>
+	<hns_sign gloss="$PROD">
+		<hamnosys_nonmanual>
+			<hnm_mouthpicture picture="pen"/>
+		</hamnosys_nonmanual>
+		<hamnosys_manual>
+			<hampinch12/>
+			<hamindexfinger/>
+			<hamfingerstraightmod/>
+			<hamextfingeru/>
+			<hampalmd/>
+			<hamhead/>
+			<hamlrat/>
+			<hamclose/>
+			<hammovedo/>
+			<hamshouldertop/>
+			<hamrepeatfromstart/>
+			<hammovel/>
+			<hammover/>
+			<hamwavy/>
+			<hamsmallmod/>
+			<hamfast/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

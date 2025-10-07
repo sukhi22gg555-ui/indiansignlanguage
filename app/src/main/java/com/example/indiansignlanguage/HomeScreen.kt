@@ -21,11 +21,12 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.BasicTextField
+import androidx.compose.foundation.text.KeyboardActions
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
-import androidx.compose.material.icons.filled.Book
-import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.automirrored.filled.MenuBook
+import androidx.compose.material.icons.filled.DateRange
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.Button
@@ -36,33 +37,39 @@ import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.LocalAbsoluteTonalElevation
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.NavigationBar
-import androidx.compose.material3.NavigationBarItem
-import androidx.compose.material3.NavigationBarItemDefaults
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
-import androidx.compose.material3.surfaceColorAtElevation
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import coil.compose.rememberAsyncImagePainter
-
-// Note: For custom icons like Handshake, you'd add them to your drawable resources.
-// As placeholders, we'll use standard Material Icons.
+import com.example.indiansignlanguage.data.UserProfile
+import com.example.indiansignlanguage.utils.FirebaseUtils
+import kotlinx.coroutines.launch
+import java.net.URLEncoder
+import java.nio.charset.StandardCharsets
 
 // Dummy data classes for the UI
 data class LearningItem(val name: String, val imageUrl: String)
@@ -77,6 +84,33 @@ data class UserProgress(
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreen(navController: NavController) {
+    var userProfile by remember { mutableStateOf<UserProfile?>(null) }
+    var isLoading by remember { mutableStateOf(true) }
+    val coroutineScope = rememberCoroutineScope()
+
+    // Load user profile when screen opens
+    LaunchedEffect(Unit) {
+        coroutineScope.launch {
+            FirebaseUtils.getUserProfile().fold(
+                onSuccess = { profile ->
+                    userProfile = profile
+                    isLoading = false
+                },
+                onFailure = {
+                    // Create default profile if none exists
+                    userProfile = UserProfile(
+                        fullName = "User",
+                        email = "",
+                        totalLessonsCompleted = 0,
+                        currentLevel = 1,
+                        totalScore = 0
+                    )
+                    isLoading = false
+                }
+            )
+        }
+    }
+
     val learningHubItems = listOf(
         LearningItem("Thank you", "https://placehold.co/200x160/eef5ff/333?text=Sign"),
         LearningItem("Yes", "https://placehold.co/200x160/eef5ff/333?text=Sign"),
@@ -85,34 +119,43 @@ fun HomeScreen(navController: NavController) {
         LearningItem("Friend", "https://placehold.co/200x160/eef5ff/333?text=Sign")
     )
 
+    // Using a separate variable to avoid potential recomposition issues with the nullable userProfile
+    val currentProfile = userProfile
     val userProgress = UserProgress(
-        name = "Priya Sharma",
-        avatarUrl = "https://placehold.co/80x80/007AFF/FFFFFF?text=PS",
-        progress = 0.3f,
-        modules = 5,
-        alphabetsLearned = 123
+        name = currentProfile?.fullName ?: "Loading...",
+        avatarUrl = "https://placehold.co/80x80/007AFF/FFFFFF?text=${currentProfile?.fullName?.take(2)?.uppercase() ?: "U"}",
+        progress = if (currentProfile != null && currentProfile.totalLessonsCompleted > 0)
+            (currentProfile.totalLessonsCompleted.toFloat() / 100f).coerceAtMost(1f)
+        else 0f,
+        modules = currentProfile?.completedModules?.size ?: 0,
+        alphabetsLearned = currentProfile?.totalLessonsCompleted ?: 0
     )
 
     Scaffold(
         topBar = { TopBar(navController) },
-        bottomBar = { BottomNavigationBar(navController) },
         containerColor = Color(0xFFF2F2F7)
     ) { paddingValues ->
-        Column(
-            modifier = Modifier
-                .padding(paddingValues)
-                .padding(horizontal = 20.dp)
-                .verticalScroll(rememberScrollState())
-        ) {
-            Spacer(modifier = Modifier.height(10.dp))
-            SearchBar()
-            Spacer(modifier = Modifier.height(20.dp))
-            QuickAccessSection(navController)
-            Spacer(modifier = Modifier.height(25.dp))
-            ProgressSection(progress = userProgress, navController = navController)
-            Spacer(modifier = Modifier.height(25.dp))
-            LearningHubSection(items = learningHubItems)
-            Spacer(modifier = Modifier.height(20.dp))
+        if (isLoading) {
+            Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+                CircularProgressIndicator()
+            }
+        } else {
+            Column(
+                modifier = Modifier
+                    .padding(paddingValues)
+                    .padding(horizontal = 20.dp)
+                    .verticalScroll(rememberScrollState())
+            ) {
+                Spacer(modifier = Modifier.height(10.dp))
+                SearchBar(navController = navController)
+                Spacer(modifier = Modifier.height(20.dp))
+                QuickAccessSection(navController)
+                Spacer(modifier = Modifier.height(25.dp))
+                ProgressSection(progress = userProgress, navController = navController)
+                Spacer(modifier = Modifier.height(25.dp))
+                LearningHubSection(items = learningHubItems, navController = navController)
+                Spacer(modifier = Modifier.height(20.dp))
+            }
         }
     }
 }
@@ -122,9 +165,9 @@ fun HomeScreen(navController: NavController) {
 fun TopBar(navController: NavController) {
     TopAppBar(
         title = { Text("Indian Sign Language", fontWeight = FontWeight.SemiBold) },
-        navigationIcon = {
-            IconButton(onClick = { navController.popBackStack() }) {
-                Icon(Icons.Default.ArrowBack, contentDescription = "Back")
+        actions = {
+            IconButton(onClick = { navController.navigate("settings") }) {
+                Icon(Icons.Default.Person, contentDescription = "Settings")
             }
         },
         colors = TopAppBarDefaults.topAppBarColors(
@@ -134,7 +177,10 @@ fun TopBar(navController: NavController) {
 }
 
 @Composable
-fun SearchBar() {
+fun SearchBar(navController: NavController) {
+    var searchText by rememberSaveable { mutableStateOf("") }
+    val keyboardController = LocalSoftwareKeyboardController.current
+
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -150,17 +196,27 @@ fun SearchBar() {
             tint = Color(0xFF8E8E93)
         )
         Spacer(modifier = Modifier.width(8.dp))
-        // Using BasicTextField for more control over styling
         BasicTextField(
-            value = "",
-            onValueChange = {},
+            value = searchText,
+            onValueChange = { searchText = it },
             decorationBox = { innerTextField ->
-                if ("".isEmpty()) {
+                if (searchText.isEmpty()) {
                     Text("Search for signs, words, or phrases...", color = Color(0xFF8E8E93))
                 }
                 innerTextField()
             },
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier.fillMaxWidth(),
+            singleLine = true,
+            keyboardOptions = KeyboardOptions(imeAction = ImeAction.Search),
+            keyboardActions = KeyboardActions(
+                onSearch = {
+                    if (searchText.isNotBlank()) {
+                        keyboardController?.hide()
+                        val encodedText = URLEncoder.encode(searchText, StandardCharsets.UTF_8.toString())
+                        navController.navigate("translator/$encodedText")
+                    }
+                }
+            )
         )
     }
 }
@@ -174,9 +230,24 @@ fun QuickAccessSection(navController: NavController) {
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
-            QuickAccessItem(icon = Icons.Default.Person, text = "Greetings") { navController.navigate("greetings") }
-            QuickAccessItem(icon = Icons.Default.Book, text = "Numbers") { navController.navigate("numbers") }
-            QuickAccessItem(icon = Icons.Default.Person, text = "All Modules") { navController.navigate("modules") }
+            QuickAccessItem(
+                icon = Icons.Default.Person,
+                text = "Greetings"
+            ) {
+                navController.navigate("greetings")
+            }
+            QuickAccessItem(
+                icon = Icons.AutoMirrored.Filled.MenuBook,
+                text = "Learn on Words"
+            ) {
+                navController.navigate("commonwords")
+            }
+            QuickAccessItem(
+                icon = Icons.Default.DateRange,
+                text = "Daily Practice"
+            ) {
+                navController.navigate("modules")
+            }
         }
     }
 }
@@ -192,7 +263,6 @@ fun QuickAccessItem(icon: ImageVector, text: String, onClick: () -> Unit) {
         modifier = Modifier
             .size(width = 110.dp, height = 100.dp)
             .border(1.dp, Color(0xFFE5E5EA), shape = RoundedCornerShape(12.dp))
-
     ) {
         Column(
             modifier = Modifier.fillMaxSize(),
@@ -249,7 +319,7 @@ fun ProgressSection(progress: UserProgress, navController: NavController) {
 
                 Box(contentAlignment = Alignment.Center, modifier = Modifier.padding(horizontal = 10.dp)) {
                     CircularProgressIndicator(
-                        progress = progress.progress,
+                        progress = { progress.progress }, // Corrected: Pass the float directly
                         modifier = Modifier.size(60.dp),
                         strokeWidth = 6.dp,
                         color = Color(0xFF007AFF),
@@ -268,7 +338,7 @@ fun ProgressSection(progress: UserProgress, navController: NavController) {
 }
 
 @Composable
-fun LearningHubSection(items: List<LearningItem>) {
+fun LearningHubSection(items: List<LearningItem>, navController: NavController) {
     Column {
         Text("Learning Hub", fontSize = 20.sp, fontWeight = FontWeight.Bold)
         Spacer(modifier = Modifier.height(15.dp))
@@ -276,69 +346,39 @@ fun LearningHubSection(items: List<LearningItem>) {
             horizontalArrangement = Arrangement.spacedBy(15.dp)
         ) {
             items(items) { item ->
-                LearningHubItem(item = item)
+                LearningHubItem(item = item, onClick = { navController.navigate("commonwords") })
             }
         }
     }
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun LearningHubItem(item: LearningItem) {
-    Column(horizontalAlignment = Alignment.CenterHorizontally) {
-        Image(
-            painter = rememberAsyncImagePainter(item.imageUrl),
-            contentDescription = item.name,
-            contentScale = ContentScale.Crop,
-            modifier = Modifier
-                .size(width = 100.dp, height = 80.dp)
-                .clip(RoundedCornerShape(10.dp))
-        )
-        Spacer(modifier = Modifier.height(8.dp))
-        Text(item.name, fontSize = 14.sp, fontWeight = FontWeight.Medium, color = Color(0xFF3C3C43))
-    }
-}
-
-
-@Composable
-fun BottomNavigationBar(navController: NavController) {
-    NavigationBar(
-        containerColor = Color.White
+fun LearningHubItem(item: LearningItem, onClick: () -> Unit = {}) {
+    Card(
+        onClick = onClick,
+        modifier = Modifier.width(100.dp),
+        colors = CardDefaults.cardColors(containerColor = Color.Transparent),
+        elevation = CardDefaults.cardElevation(defaultElevation = 0.dp)
     ) {
-        NavigationBarItem(
-            icon = { Icon(Icons.Default.Home, contentDescription = "Home") },
-            label = { Text("Home") },
-            selected = true,
-            onClick = { /* Already on Home */ },
-            colors = NavigationBarItemDefaults.colors(
-                selectedIconColor = Color(0xFF007AFF),
-                selectedTextColor = Color(0xFF007AFF),
-                indicatorColor = MaterialTheme.colorScheme.surfaceColorAtElevation(LocalAbsoluteTonalElevation.current + 3.dp)
+        Column(horizontalAlignment = Alignment.CenterHorizontally) {
+            Image(
+                painter = rememberAsyncImagePainter(item.imageUrl),
+                contentDescription = item.name,
+                contentScale = ContentScale.Crop,
+                modifier = Modifier
+                    .size(width = 100.dp, height = 80.dp)
+                    .clip(RoundedCornerShape(10.dp))
             )
-        )
-        NavigationBarItem(
-            icon = { Icon(Icons.Default.Book, contentDescription = "Modules") },
-            label = { Text("Modules") },
-            selected = false,
-            onClick = { navController.navigate("modules") }
-        )
-        NavigationBarItem(
-            icon = { Icon(Icons.Default.Search, contentDescription = "Translator") },
-            label = { Text("Translator") },
-            selected = false,
-            onClick = { navController.navigate("translator") }
-        )
-        NavigationBarItem(
-            icon = { Icon(Icons.Default.Person, contentDescription = "Profile") },
-            label = { Text("Profile") },
-            selected = false,
-            onClick = { navController.navigate("profile") }
-        )
+            Spacer(modifier = Modifier.height(8.dp))
+            Text(item.name, fontSize = 14.sp, fontWeight = FontWeight.Medium, color = Color(0xFF3C3C43))
+        }
     }
 }
 
 @Preview(showBackground = true, widthDp = 375, heightDp = 812)
 @Composable
-fun IndianSignLanguageScreenPreview() {
+fun HomeScreenPreview() { // Renamed for clarity, following convention
     MaterialTheme {
         HomeScreen(navController = rememberNavController())
     }

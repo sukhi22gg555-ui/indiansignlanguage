@@ -1,0 +1,66 @@
+<!---->
+<sigml>
+	<hns_sign gloss="">
+		<hamnosys_nonmanual>
+			<hnm_eyebrows tag="FU"/>
+		</hamnosys_nonmanual>
+		<hamnosys_manual>
+			<hamfinger2/>
+			<hamthumbacrossmod/>
+			<hamextfingeru/>
+			<hampalmdl/>
+			<hamneck/>
+			<hamreplace/>
+			<hamextfingeru/>
+			<hampalmul/>
+			<hamreplace/>
+			<hamflathand/>
+			<hamextfingero/>
+			<hampalml/>
+			<hamshouldertop/>
+			<hammovel/>
+			<hamlargemod/>
+			<hamarcd/>
+			<hamfast/>
+			<hamreplace/>
+			<hamfinger23/>
+			<hamthumbacrossmod/>
+			<hamextfingeru/>
+			<hampalmdl/>
+			<hamneck/>
+			<hamreplace/>
+			<hamextfingeru/>
+			<hampalmul/>
+			<hamreplace/>
+			<hamflathand/>
+			<hamextfingero/>
+			<hampalml/>
+			<hamshouldertop/>
+			<hammovel/>
+			<hamlargemod/>
+			<hamarcd/>
+			<hamfast/>
+			<hamreplace/>
+			<hamflathand/>
+			<hamthumbacrossmod/>
+			<hampinky/>
+			<hamdoublehooked/>
+			<hamextfingeru/>
+			<hampalmdl/>
+			<hamneck/>
+			<hamreplace/>
+			<hamextfingeru/>
+			<hampalmul/>
+			<hamreplace/>
+			<hamflathand/>
+			<hamextfingero/>
+			<hampalml/>
+			<hamshouldertop/>
+			<hammovel/>
+			<hamlargemod/>
+			<hamarcd/>
+			<hamfast/>
+		</hamnosys_manual>
+	</hns_sign>
+
+</sigml>

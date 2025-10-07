@@ -1,0 +1,14 @@
+<sigml><hns_sign gloss="">
+<!---->
+<hamnosys_nonmanual><hnm_body tag=""/><hnm_shoulder tag=""/><hnm_head tag=""/><hnm_mouthpicture picture="e_@r"/><hnm_eyegaze tag=""/><hnm_eyebrows tag=""/><hnm_nose tag=""/><hnm_eyelids tag=""/></hamnosys_nonmanual><hamnosys_manual><hamflathand/><hamthumboutmod/><hammiddlefinger/><hamdoublehooked/><hamringfinger/><hamdoublehooked/><hamextfingerl/><hampalmd/><hambelowstomach/><hamlrbeside/><hamreplace/><hamextfingerul/><hampalmd/><hamlrbeside/><hamhead/></hamnosys_manual></hns_sign>
+<hns_sign gloss="">
+<!---->
+<hamnosys_nonmanual><hnm_body tag="TB"/><hnm_shoulder tag="UL"/><hnm_head tag="TR"/><hnm_mouthpicture picture=""/><hnm_eyegaze tag=""/><hnm_eyebrows tag="FU"/><hnm_nose tag=""/><hnm_eyelids tag="CB"/></hamnosys_nonmanual><hamnosys_manual><hamfinger23/><hamthumbacrossmod/><hammiddlefinger/><hamfingerstraightmod/><hamextfingero/><hampalml/><hamchest/><hamlrat/><hamreplace/><hamfist/><hamextfingeru/><hampalml/><hamhead/><hamlrbeside/><hambetween/><hamshouldertop/><hamlrbeside/></hamnosys_manual></hns_sign>
+<hns_sign gloss="">
+<!---->
+<hamnosys_nonmanual><hnm_body tag=""/><hnm_shoulder tag=""/><hnm_head tag=""/><hnm_mouthpicture picture="spi:d"/><hnm_eyegaze tag="DN"/><hnm_eyebrows tag=""/><hnm_nose tag=""/><hnm_eyelids tag="SB"/></hamnosys_nonmanual><hamnosys_manual><hamsymmpar/><hamflathand/><hamparbegin/><hamextfingerol/><hampalmd/><hamplus/><hamextfingero/><hampalmd/><hamparend/><hamparbegin/><hamshouldertop/><hamplus/><hamlrat/><hamshoulders/><hambetween/><hamshoulders/><hamparend/><hamparbegin/><hammoveur/><hamsmallmod/><hamplus/><hamnomotion/><hamparend/><hamrepeatfromstart/><hamparbegin/><hamreplace/><hamfinger2/><hamthumbacrossmod/><hamplus/><hamreplace/><hamflathand/><hamparend/><hamparbegin/><hamreplace/><hamextfingerul/><hampalmr/><hamplus/><hamreplace/><hamextfingerdr/><hampalmdr/><hamparend/><hamparbegin/><hamshouldertop/><hambetween/><hamshoulders/><hamplus/><hamlrat/><hamshoulders/><hambetween/><hamlrat/><hamchest/><hamparend/><hamreplace/><hamparbegin/><hamextfingerur/><hampalml/><hamplus/><hamextfingerdr/><hampalmdr/><hamparend/><hamparbegin/><hamshouldertop/><hamplus/><hamlrat/><hamshoulders/><hambetween/><hamlrat/><hamchest/><hamparend/></hamnosys_manual></hns_sign>
+<hns_sign gloss="">
+<!---->
+<hamnosys_nonmanual><hnm_body tag=""/><hnm_shoulder tag=""/><hnm_head tag=""/><hnm_mouthpicture picture="spi:d"/><hnm_eyegaze tag="DN"/><hnm_eyebrows tag=""/><hnm_nose tag=""/><hnm_eyelids tag="SB"/></hamnosys_nonmanual><hamnosys_manual><hamfinger2345/><hamthumboutmod/><hamfingerbendmod/><hamextfingero/><hampalmu/><hamshoulders/><hamlrat/><hammovel/><hamsmallmod/><hamrepeatfromstart/></hamnosys_manual></hns_sign>
+
+</sigml>

@@ -1,0 +1,27 @@
+﻿<!--    -->
+<!--  mouth: SUg@r  -->
+
+<sigml>
+	<hns_sign gloss="$PROD">
+		<hamnosys_nonmanual>
+			<hnm_mouthpicture picture="&quot;Suɡar"/>
+		</hamnosys_nonmanual>
+		<hamnosys_manual>
+			<hampinch12open/>
+			<hamfingerstraightmod/>
+			<hambetween/>
+			<hampinchall/>
+			<hamextfingeru/>
+			<hampalml/>
+			<hamlips/>
+			<hamlrat/>
+			<hamreplace/>
+			<hampalml/>
+			<hambetween/>
+			<hampalmdl/>
+			<hamfast/>
+			<hamrepeatreverse/>
+		</hamnosys_manual>
+	</hns_sign>
+
+</sigml>

@@ -1,0 +1,46 @@
+<!---->
+<sigml>
+	<hns_sign gloss="">
+		<hamnosys_nonmanual>
+			<hnm_head tag="SL"/>
+		</hamnosys_nonmanual>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hamfingerstraightmod/>
+			<hamlargemod/>
+			<hamparbegin/>
+			<hamfinger2/>
+			<hamthumbacrossmod/>
+			<hamplus/>
+			<hamfist/>
+			<hamparend/>
+			<hamparbegin/>
+			<hamextfingerl/>
+			<hampalml/>
+			<hamplus/>
+			<hamextfingerui/>
+			<hampalmd/>
+			<hamparend/>
+			<hamparbegin/>
+			<hamlrat/>
+			<hamhead/>
+			<hamplus/>
+			<hamlrbeside/>
+			<hamchin/>
+			<hambetween/>
+			<hamlrbeside/>
+			<hamhead/>
+			<hamparend/>
+			<hamparbegin/>
+			<hammoved/>
+			<hammoved/>
+			<hamlargemod/>
+			<hamarcu/>
+			<hammovedi/>
+			<hamplus/>
+			<hamnomotion/>
+			<hamparend/>
+		</hamnosys_manual>
+	</hns_sign>
+
+</sigml>

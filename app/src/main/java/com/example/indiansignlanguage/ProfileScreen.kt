@@ -30,6 +30,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.indiansignlanguage.data.UserProfile
 import com.example.indiansignlanguage.utils.FirebaseUtils
 import kotlinx.coroutines.launch
+import android.util.Log
 
 // Define colors for easy access and modification
 val primaryBlue = Color(0xFF0D62FF)
@@ -41,6 +42,11 @@ val backgroundColor = Color(0xFFF7F9FC)
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ProfileScreen(navController: NavController) {
+    // Log when ProfileScreen loads
+    LaunchedEffect(Unit) {
+        Log.d("Navigation", "ProfileScreen composable loaded and displayed")
+    }
+    
     var userProfile by remember { mutableStateOf<UserProfile?>(null) }
     var isLoading by remember { mutableStateOf(true) }
     val coroutineScope = rememberCoroutineScope()
@@ -84,7 +90,6 @@ fun ProfileScreen(navController: NavController) {
                 )
             )
         },
-        bottomBar = { ProfileBottomNavigationBar(navController) },
         containerColor = backgroundColor
     ) { paddingValues ->
         if (isLoading) {
@@ -271,69 +276,6 @@ fun ActionButton(icon: ImageVector, text: String) {
     }
 }
 
-@Composable
-fun ProfileBottomNavigationBar(navController: NavController) {
-    NavigationBar(
-        containerColor = Color.White
-    ) {
-        NavigationBarItem(
-            icon = { Icon(Icons.Default.Home, contentDescription = "Home") },
-            label = { Text("Home") },
-            selected = false,
-            onClick = { 
-                navController.navigate("Home") {
-                    popUpTo(navController.graph.startDestinationId) {
-                        saveState = true
-                    }
-                    launchSingleTop = true
-                    restoreState = true
-                }
-            },
-            colors = NavigationBarItemDefaults.colors(
-                unselectedIconColor = lightText,
-                unselectedTextColor = lightText,
-                selectedIconColor = primaryBlue,
-                selectedTextColor = primaryBlue
-            )
-        )
-        NavigationBarItem(
-            icon = { Icon(Icons.Default.Book, contentDescription = "Modules") },
-            label = { Text("Modules") },
-            selected = false,
-            onClick = { navController.navigate("modules") },
-            colors = NavigationBarItemDefaults.colors(
-                unselectedIconColor = lightText,
-                unselectedTextColor = lightText,
-                selectedIconColor = primaryBlue,
-                selectedTextColor = primaryBlue
-            )
-        )
-        NavigationBarItem(
-            icon = { Icon(Icons.Default.Search, contentDescription = "Translator") },
-            label = { Text("Translator") },
-            selected = false,
-            onClick = { navController.navigate("translator") },
-            colors = NavigationBarItemDefaults.colors(
-                unselectedIconColor = lightText,
-                unselectedTextColor = lightText,
-                selectedIconColor = primaryBlue,
-                selectedTextColor = primaryBlue
-            )
-        )
-        NavigationBarItem(
-            icon = { Icon(Icons.Default.Person, contentDescription = "Profile") },
-            label = { Text("Profile") },
-            selected = true,
-            onClick = { /* Already on Profile */ },
-            colors = NavigationBarItemDefaults.colors(
-                unselectedIconColor = lightText,
-                unselectedTextColor = lightText,
-                selectedIconColor = primaryBlue,
-                selectedTextColor = primaryBlue
-            )
-        )
-    }
-}
 
 @Preview(showBackground = true, showSystemUi = true)
 @Composable

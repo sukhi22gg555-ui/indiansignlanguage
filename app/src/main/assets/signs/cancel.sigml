@@ -1,0 +1,46 @@
+﻿<!---->
+
+<sigml>
+	<hns_sign gloss="">
+		<hamnosys_nonmanual>
+<hnm_mouthpicture picture="k{n.s@l"/>
+<hnm_eyebrows tag="RB"/>
+		</hamnosys_nonmanual>
+		<hamnosys_manual>
+			<hamfinger2/>
+			<hamthumbacrossmod/>
+			<hamextfingeru/>
+			<hampalmd/>
+			<hamchin/>
+			<hamclose/>
+			<hamparbegin/>
+			<hammovedr/>
+			<hamlargemod/>
+			<hamfast/>
+			<hamreplace/>
+			<hamfinger2/>
+			<hamthumbacrossmod/>
+			<hamextfingero/>
+			<hampalmd/>
+			<hamparend/>
+			<hamreplace/>
+			<hamfinger2/>
+			<hamthumbacrossmod/>
+			<hamextfingeru/>
+			<hampalmd/>
+			<hamneck/>
+			<hamlrat/>
+			<hamparbegin/>
+			<hammovedl/>
+			<hamlargemod/>
+			<hamfast/>
+			<hamreplace/>
+			<hamfinger2/>
+			<hamthumbacrossmod/>
+			<hamextfingerdl/>
+			<hampalml/>
+			<hamparend/>
+		</hamnosys_manual>
+	</hns_sign>
+
+</sigml>

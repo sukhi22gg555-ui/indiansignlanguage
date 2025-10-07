@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Avatar Clip Explorer</title>
+  <style>
+    html, body { height: 100%; margin: 0; font-family: system-ui, Arial, sans-serif; }
+    body { display: flex; flex-direction: column; background: #fafafa; }
+    #topbar { padding: 8px 12px; background: #fff; border-bottom: 1px solid #e5e7eb; font-size: 12px; color: #334155; }
+    #container { padding: 12px; gap: 12px; display: grid; grid-template-columns: 1fr 1fr; }
+    #clips, #json { background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; padding: 12px; }
+    #clips ul { margin: 0; padding-left: 18px; }
+    textarea { width: 100%; height: 420px; resize: vertical; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 12px; }
+    .hint { font-size: 12px; color: #64748b; }
+    .badge { display:inline-block; background:#e0e7ff; color:#1e40af; padding:2px 6px; border-radius:6px; margin-right:6px; }
+    #status { padding: 8px 12px; font-size: 12px; color: #0f172a; }
+  </style>
+</head>
+<body>
+  <div id="topbar">Avatar Clip Explorer — assets/sigml_player/avatar.glb</div>
+  <div id="status">Loading…</div>
+  <div id="container">
+    <div id="clips">
+      <div class="hint">Detected animation clips in avatar.glb</div>
+      <ul id="clipList"></ul>
+    </div>
+    <div id="json">
+      <div class="hint">Starter animations.json (edit clip names on the right)</div>
+      <textarea id="jsonArea">{
+  "hello": "Hello",
+  "thank you": "ThankYou"
+}</textarea>
+      <div class="hint">Save this as assets/sigml_player/animations.json</div>
+    </div>
+  </div>
+
+  <script>
+    function loadScript(src){return new Promise((res,rej)=>{const s=document.createElement('script');s.src=src;s.onload=res;s.onerror=rej;document.head.appendChild(s);});}
+    async function ensureThree(){try{await loadScript('lib/three.min.js');await loadScript('lib/GLTFLoader.js');return true;}catch(e){return false;}}
+
+    async function init(){
+      const status=document.getElementById('status');
+      const ok=await ensureThree();
+      if(!ok){
+        status.textContent='Missing libs. Place lib/three.min.js and lib/GLTFLoader.js under assets/sigml_player/lib';
+        return;
+      }
+      status.textContent='Loading avatar.glb…';
+      const loader=new THREE.GLTFLoader();
+      loader.load('avatar.glb', (gltf)=>{
+        const clips=gltf.animations||[];
+        const list=document.getElementById('clipList');
+        list.innerHTML='';
+        const names=[];
+        clips.forEach((c)=>{
+          names.push(c.name);
+          const li=document.createElement('li');
+          li.textContent=c.name + '  ('+ (c.duration.toFixed(2)) +'s)';
+          list.appendChild(li);
+        });
+        status.textContent='Found '+clips.length+' clip(s).';
+        // Build a starter JSON mapping using first few names as examples
+        const starter={};
+        ['hello','thank you','please','water','good','morning','family'].forEach((w,i)=>{ if(names[i]) starter[w]=names[i]; });
+        const area=document.getElementById('jsonArea');
+        try{ area.value=JSON.stringify(starter, null, 2); }catch(e){ /* ignore */ }
+      }, undefined, (err)=>{
+        status.textContent='avatar.glb not found. Place your GLB in assets/sigml_player/avatar.glb';
+      });
+    }
+    init();
+  </script>
+</body>
+</html>

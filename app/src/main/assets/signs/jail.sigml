@@ -1,0 +1,65 @@
+﻿<!--    -->
+<sigml>
+	<hns_sign gloss="">
+		<hamnosys_nonmanual>
+			<hnm_mouthgesture tag="L29"/>
+			<!-- <hnm_mouthpicture picture="jail"/>  -->
+			<hnm_head tag="TL"/>
+			<hnm_eyegaze tag="AD"/>
+			<hnm_eyebrows tag="FU"/>
+		</hamnosys_nonmanual>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hamparbegin/>
+			<hamfist/>
+			<hamextfingerul/>
+			<hambetween/>
+			<hamextfingeru/>
+			<hampalmr/>
+			<hambetween/>
+			<hampalmdr/>
+			<hamplus/>
+			<hamfist/>
+			<hamthumbacrossmod/>
+			<hamextfingero/>
+			<hambetween/>
+			<hamextfingerr/>
+			<hampalmr/>
+			<hambetween/>
+			<hampalmur/>
+			<hamparend/>
+			<hamparbegin/>
+			<hamlrat/>
+			<hamshouldertop/>
+			<hambetween/>
+			<hamshouldertop/>
+			<hamclose/>
+			<hamplus/>
+			<hamshoulders/>
+			<hambetween/>
+			<hamshoulders/>
+			<hamparend/>
+			<hamparbegin/>
+			<hamreplace/>
+			<hampalmr/>
+			<hambetween/>
+			<hampalmdr/>
+			<hamplus/>
+			<hamreplace/>
+			<hampalmr/>
+			<hambetween/>
+			<hampalmur/>
+			<hamparend/>
+			<hamreplace/>
+			<hamfinger2345/>
+			<hamthumbacrossmod/>
+			<hamextfingeru/>
+			<hampalmd/>
+			<hamhead/>
+			<hammoved/>
+			<hamslow/>
+			<hamchest/>
+		</hamnosys_manual>
+	</hns_sign>
+
+</sigml>

@@ -1,0 +1,25 @@
+<!--    -->
+<sigml>
+	<hns_sign gloss="">
+		<hamnosys_nonmanual>
+			<hnm_mouthpicture picture="wO:t@r"/>
+			<hnm_head tag="SR"/>
+		</hamnosys_nonmanual>
+		<hamnosys_manual>
+			<hamfist/>
+			<hamthumboutmod/>
+			<hamextfingerui/>
+			<hampalml/>
+			<hameyes/>
+			<hambetween/>
+			<hamnose/>
+			<hamlrbeside/>
+			<hamclose/>
+			<hamparbegin/>
+			<hamreplace/>
+			<hampalml/><hamswinging/>
+			<hamparend/>
+		</hamnosys_manual>
+	</hns_sign>
+
+<!--  -->   <hns_sign gloss="bucket" > <hamnosys_nonmanual><hnm_mouthpicture picture="BVk.It"/></hamnosys_nonmanual><hamnosys_manual><hamfist/><hamextfingerd/><hambetween/><hamextfingerdl/><hampalml/><hamshouldertop/><hambetween/><hamshoulders/><hammoved/><hamsmallmod/><hammoveu/><hamsmallmod/><hamrepeatfromstart/></hamnosys_manual></hns_sign></sigml>

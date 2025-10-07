@@ -1,0 +1,21 @@
+<!---->
+<sigml>
+	<hns_sign gloss="">
+		<hamnosys_nonmanual>
+			<hnm_body tag="TF"/>
+			<hnm_head tag="NF"/>
+		</hamnosys_nonmanual>
+		<hamnosys_manual>
+			<hamfist/>
+			<hamthumbacrossmod/>
+			<hamextfingero/>
+			<hampalml/>
+			<hamshoulders/>
+			<hammoved/>
+			<hamwavy/>
+			<hamsmallmod/>
+		</hamnosys_manual>
+
+	</hns_sign>
+
+</sigml>

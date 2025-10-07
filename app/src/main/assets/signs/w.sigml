@@ -1,0 +1,24 @@
+﻿<!---->
+<sigml>
+	<hns_sign gloss="">
+		<hamnosys_nonmanual>
+			<hnm_mouthpicture picture="dVb·@l·ju:"/>
+		</hamnosys_nonmanual>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hamfinger2345/>
+			<hamthumboutmod/>
+			<hamextfingerul/>
+			<hampalmdl/>
+			<hamparbegin/>
+			<hamfingermidjoint/>
+			<hamplus/>
+			<hamfingermidjoint/>
+			<hamparend/>
+			<hamtouch/>
+			<hamshoulders/><hambetween/><hamshouldertop/>
+
+		</hamnosys_manual>
+	</hns_sign>
+
+</sigml>

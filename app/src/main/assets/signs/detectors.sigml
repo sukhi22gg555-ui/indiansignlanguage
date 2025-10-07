@@ -1,0 +1,67 @@
+<!---->
+<sigml>
+	<hns_sign gloss="">
+		<hamnosys_nonmanual>
+			<hnm_head tag="NF"/>
+			<hnm_eyebrows tag="FU"/>
+			<hnm_eyelids tag="SB"/>
+		</hamnosys_nonmanual>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hamfingerstraightmod/>
+			<hamlargemod/>
+			<hamfinger2/>
+			<hamextfingeru/>
+			<hampalmu/>
+			<hamparbegin/>
+			<hamshouldertop/>
+			<hambetween/>
+			<hamhead/>
+			<hamlrat/>
+			<hamplus/>
+			<hamshouldertop/>
+			<hambetween/>
+			<hamlrat/>
+			<hamhead/>
+			<hamparend/>
+			<hamparbegin/>
+			<hammoveui/>
+			<hamsmallmod/>
+			<hammovedo/>
+			<hamsmallmod/>
+			<hammoveui/>
+			<hamsmallmod/>
+			<hamplus/>
+			<hammovedo/>
+			<hamsmallmod/>
+			<hammoveui/>
+			<hamsmallmod/>
+			<hammovedo/>
+			<hamsmallmod/>
+			<hamparend/>
+			<hamreplace/>
+			<hamfinger2345/>
+			<hamthumbopenmod/>
+			<hamfingerbendmod/>
+			<hamextfingero/>
+			<hampalmu/>
+			<hamchest/>
+			<hamparbegin/>
+			<hammoved/>
+			<hamsmallmod/>
+			<hammoveur/>
+			<hamsmallmod/>
+			<hammoved/>
+			<hamsmallmod/>
+			<hamplus/>
+			<hammoved/>
+			<hamsmallmod/>
+			<hammoveul/>
+			<hamsmallmod/>
+			<hammoved/>
+			<hamsmallmod/>
+			<hamparend/>
+		</hamnosys_manual>
+	</hns_sign>
+
+</sigml>

@@ -1,0 +1,57 @@
+<!---->
+<sigml>
+	<hns_sign gloss="elbows">
+		<hamnosys_nonmanual>
+			<hnm_mouthpicture picture="elb@_U"/>
+		</hamnosys_nonmanual>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hamfingerstraightmod/>
+			<hamlargemod/>
+			<hamparbegin/>
+			<hamfist/>
+			<hamplus/>
+			<hamflathand/>
+			<hamparend/>
+			<hamparbegin/>
+			<hamextfingerul/>
+			<hampalml/>
+			<hamplus/>
+			<hamextfingerr/>
+			<hampalmu/>
+			<hamparend/>
+			<hamparbegin/>
+			<hamlrat/>
+			<hamshouldertop/>
+			<hamplus/>
+			<hamchest/>
+			<hamlrat/>
+			<hamparend/>
+			<hamparbegin/>
+			<hammovei/>
+			<hamlargemod/>
+			<hamplus/>
+			<hammoved/>
+			<hamsmallmod/>
+			<hammovei/>
+			<hamsmallmod/>
+			<hammovei/>
+			<hamlargemod/>
+			<hamparend/>
+			<hamparbegin/>
+			<hammovedo/>
+			<hamlargemod/>
+			<hammovedo/>
+			<hammoveui/>
+			<hamlargemod/>
+			<hammoveui/>
+			<hamplus/>
+			<hammoved/>
+			<hamsmallmod/>
+			<hammoveu/>
+			<hamsmallmod/>
+			<hamparend/>
+		</hamnosys_manual>
+	</hns_sign>
+
+</sigml>

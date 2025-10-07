@@ -1,0 +1,5 @@
+﻿<sigml>  <!--  --> <hns_sign gloss="" > <hamnosys_nonmanual><hnm_mouthpicture picture="masala"/>
+			<hnm_eyegaze tag="HD"/>
+			<hnm_eyebrows tag=""/><hnm_eyebrows tag=""/>>
+			<hnm_eyelids tag=""/>
+			<hnm_nose tag="WI"/><hnm_nose tag="WI"/></hamnosys_nonmanual><hamnosys_manual><hampinchall/><hamfingerstraightmod/><hambetween/><hampinchall/><hamextfingerol/><hambetween/><hamextfingerol/><hamextfingeruo/><hampalmd/><hamshouldertop/><hamclose/><hamparbegin/><hamcircled/><hamslow/><hamfingerplay/><hamparend/><hamrepeatfromstart/></hamnosys_manual></hns_sign></sigml>

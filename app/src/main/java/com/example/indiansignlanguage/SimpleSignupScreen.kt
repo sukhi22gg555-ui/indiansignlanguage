@@ -25,6 +25,9 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import com.example.indiansignlanguage.data.UserProfile
+import com.example.indiansignlanguage.utils.FirebaseUtils
+import kotlinx.coroutines.launch
 
 /**
  * Simple SignUp screen that only uses Firebase Authentication
@@ -40,6 +43,7 @@ fun SimpleSignUpScreen(navController: NavController) {
     val context = LocalContext.current
 
     val auth = Firebase.auth
+    val coroutineScope = rememberCoroutineScope()
 
     // Function to handle the simple signup process
     fun handleSimpleSignUp() {
@@ -62,16 +66,46 @@ fun SimpleSignUpScreen(navController: NavController) {
         isLoading = true
         Toast.makeText(context, "Creating account...", Toast.LENGTH_SHORT).show()
 
-        // Simple Firebase Authentication - NO FIRESTORE
+        // Firebase Authentication with user profile creation
         auth.createUserWithEmailAndPassword(email, password)
             .addOnSuccessListener { authResult ->
-                isLoading = false
-                Toast.makeText(context, "Account created successfully! You can now login.", Toast.LENGTH_LONG).show()
+                // Create user profile in Firestore
+                val userProfile = UserProfile(
+                    fullName = if (fullName.isNotBlank()) fullName else "User",
+                    email = email,
+                    createdAt = System.currentTimeMillis(),
+                    totalLessonsCompleted = 0,
+                    currentLevel = 1,
+                    totalScore = 0,
+                    lastActiveDate = System.currentTimeMillis(),
+                    completedModules = emptyList(),
+                    achievements = emptyList()
+                )
                 
-                // Navigate to login immediately
-                navController.navigate("login") {
-                    popUpTo("signup") { inclusive = true }
-                    launchSingleTop = true
+                // Save user profile to Firestore
+                coroutineScope.launch {
+                    FirebaseUtils.saveUserProfile(userProfile).fold(
+                        onSuccess = {
+                            isLoading = false
+                            Toast.makeText(context, "Account created successfully! You can now login.", Toast.LENGTH_LONG).show()
+                            
+                            // Navigate to login immediately
+                            navController.navigate("login") {
+                                popUpTo("signup") { inclusive = true }
+                                launchSingleTop = true
+                            }
+                        },
+                        onFailure = { error ->
+                            isLoading = false
+                            Toast.makeText(context, "Account created but profile setup failed: ${error.message}", Toast.LENGTH_LONG).show()
+                            
+                            // Still navigate to login
+                            navController.navigate("login") {
+                                popUpTo("signup") { inclusive = true }
+                                launchSingleTop = true
+                            }
+                        }
+                    )
                 }
             }
             .addOnFailureListener { exception ->

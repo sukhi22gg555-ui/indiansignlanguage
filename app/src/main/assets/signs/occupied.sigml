@@ -1,0 +1,46 @@
+<!---->
+<sigml>
+	<hns_sign gloss="occupied">
+		<hamnosys_nonmanual>
+			<hnm_mouthpicture picture="A:kjVpa_Id"/>
+			<hnm_head tag="SR"/>
+		</hamnosys_nonmanual>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hamfingerstraightmod/>
+			<hamlargemod/>
+			<hamflathand/>
+			<hamparbegin/>
+			<hamextfingeru/>
+			<hampalmdl/>
+			<hamplus/>
+			<hamextfingeror/>
+			<hampalmd/>
+			<hamparend/>
+			<hamparbegin/>
+			<hamlrat/>
+			<hamunderchin/>
+			<hambetween/>
+			<hamstomach/>
+			<hamplus/>
+			<hamshoulders/>
+			<hambetween/>
+			<hamlrat/>
+			<hamshoulders/>
+			<hamparend/>
+			<hamparbegin/>
+			<hammoveor/>
+			<hamsmallmod/>
+			<hammoveil/>
+			<hamsmallmod/>
+			<hammoveor/>
+			<hamsmallmod/>
+			<hammoveil/>
+			<hamsmallmod/>
+			<hamplus/>
+			<hamnomotion/>
+			<hamparend/>
+		</hamnosys_manual>
+	</hns_sign>
+
+</sigml>

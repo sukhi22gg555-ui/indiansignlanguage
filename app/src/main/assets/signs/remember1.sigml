@@ -1,0 +1,33 @@
+﻿<!--     -->
+
+
+
+
+<sigml>
+ <hns_sign gloss="$PROD">
+  <hamnosys_nonmanual>
+   <hnm_mouthpicture picture="rImemb@"/>
+   <hnm_eyegaze tag="RU"/>
+   <hnm_eyebrows tag="RB"/>
+  </hamnosys_nonmanual>
+		<hamnosys_manual>
+			<hamflathand/>
+			<hambetween/>
+			<hamflathand/>
+			<hamfingerstraightmod/>
+			<hamextfingerul/>
+			<hambetween/>
+			<hamextfingeru/>
+			<hampalmdl/>
+			<hamforehead/>
+			<hamlrat/>
+			<hambetween/>
+			<hameyes/>
+			<hamlrbeside/>
+			<hamclose/>
+			<hamnodding/>
+			<hamsmallmod/>
+		</hamnosys_manual>
+	</hns_sign>
+
+</sigml>

@@ -1,0 +1,3 @@
+<sigml><hns_sign gloss="assistance">
+<!---->
+<hamnosys_nonmanual><hnm_body tag=""/><hnm_shoulder tag=""/><hnm_head tag=""/><hnm_mouthpicture picture="@sIst@ns"/><hnm_eyegaze tag="DN"/><hnm_eyebrows tag=""/><hnm_nose tag=""/><hnm_eyelids tag="SB"/></hamnosys_nonmanual><hamnosys_manual><hamsymmpar/><hamfist/><hamthumboutmod/><hamparbegin/><hamextfingero/><hampalmdl/><hamplus/><hamextfingero/><hampalmur/><hamparend/><hamparbegin/><hamchest/><hambetween/><hamshoulders/><hamlrat/><hamplus/><hamshouldertop/><hamparend/><hamparbegin/><hammovedr/><hamsmallmod/><hammoveul/><hamsmallmod/><hamplus/><hamnomotion/><hamparend/><hamrepeatfromstart/></hamnosys_manual></hns_sign></sigml>

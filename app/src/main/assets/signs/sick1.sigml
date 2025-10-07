@@ -1,0 +1,33 @@
+﻿<!--  -->
+<sigml>
+	<hns_sign gloss="$PROD">
+		<hamnosys_nonmanual>
+			<hnm_mouthpicture picture="sIk"/>
+			<hnm_head tag="TR"/><hnm_head tag="TR"/><hnm_head tag="TR"/>
+		</hamnosys_nonmanual>
+		<hamnosys_manual>
+			<hamflathand/>
+			<hamthumbopenmod/>
+			<hamfingerstraightmod/>
+			<hambetween/>
+			<hamflathand/>
+			<hamthumboutmod/>
+			<hamextfingeri/>
+			<hambetween/>
+			<hamextfingerul/>
+			<hampalmd/>
+			<hambetween/>
+			<hampalmur/>
+			<hamneck/>
+			<hamlrbeside/>
+			<hambetween/>
+			<hamchin/>
+			<hamlrbeside/>
+			<hamseqbegin/>
+			<hamtouch/>
+			<hamthumbside/>
+			<hamseqend/>
+		</hamnosys_manual>
+	</hns_sign>
+
+</sigml>

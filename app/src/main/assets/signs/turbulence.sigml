@@ -1,0 +1,85 @@
+<!--
+
+
+
+-->
+<sigml>
+	<hns_sign gloss="">
+		<hamnosys_nonmanual>
+		</hamnosys_nonmanual>
+		<hamnosys_manual>
+			<hamflathand/>
+			<hamextfingerl/>
+			<hampalml/>
+			<hamshouldertop/>
+			<hammovei/>
+			<hammoved/>
+			<hamlargemod/>
+		</hamnosys_manual>
+	</hns_sign>
+
+	<hns_sign gloss="">
+		<hamnosys_nonmanual>
+		</hamnosys_nonmanual>
+		<hamnosys_manual>
+			<hamnondominant/>
+			<hamflathand/>
+			<hamextfingerr/>
+			<hampalmr/>
+			<hamlrat/>
+			<hamshouldertop/>
+			<hammovei/>
+			<hammoved/>
+			<hamlargemod/>
+		</hamnosys_manual>
+	</hns_sign>
+
+	<hns_sign gloss="">
+		<hamnosys_nonmanual>
+		</hamnosys_nonmanual>
+		<hamnosys_manual>
+			<hamflathand/>
+			<hamextfingerl/>
+			<hampalml/>
+			<hamshouldertop/>
+			<hammovei/>
+			<hammoved/>
+			<hamlargemod/>
+		</hamnosys_manual>
+	</hns_sign>
+
+	<hns_sign gloss="">
+		<hamnosys_nonmanual>
+		</hamnosys_nonmanual>
+		<hamnosys_manual>
+			<hamnondominant/>
+			<hamflathand/>
+			<hamextfingerr/>
+			<hampalmr/>
+			<hamlrat/>
+			<hamshouldertop/>
+			<hammovei/>
+			<hammoved/>
+			<hamlargemod/>
+		</hamnosys_manual>
+	</hns_sign>
+
+	<hns_sign gloss="">
+		<hamnosys_nonmanual>
+			<hnm_head tag="SR"/>
+		</hamnosys_nonmanual>
+		<hamnosys_manual>
+			<hamfinger2345/>
+			<hamthumboutmod/>
+			<hamextfingeru/>
+			<hampalmul/>
+			<hamshouldertop/>
+			<hamlrat/>
+			<hambetween/>
+			<hamhead/>
+			<hamlrat/>
+			<hamtwisting/>
+		</hamnosys_manual>
+	</hns_sign>
+
+</sigml>

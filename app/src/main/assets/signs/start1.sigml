@@ -1,0 +1,30 @@
+﻿<!--     -->
+<sigml>
+	<hns_sign gloss="$PROD">
+		<hamnosys_nonmanual>
+			<hnm_mouthpicture picture="stAt"/>
+			<hnm_head tag="ND"/>
+		</hamnosys_nonmanual>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hamflathand/>
+			<hamthumboutmod/>
+			<hamextfingero/>
+			<hambetween/>
+			<hamextfingeruo/>
+			<hampalmdl/>
+			<hamreplace/>
+			<hamflathand/>
+			<hambetween/>
+			<hamflathand/>
+			<hamfingerstraightmod/>
+			<hamthumboutmod/>
+			<hamextfingero/>
+			<hampalmu/>
+			<hambetween/>
+			<hampalmul/>
+			<hamshoulders/>
+		</hamnosys_manual>
+	</hns_sign>
+
+</sigml>

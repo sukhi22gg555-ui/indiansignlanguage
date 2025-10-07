@@ -11,7 +11,7 @@ import java.util.*
 
 object FirebaseUtils {
     private val auth = Firebase.auth
-    private val firestore = Firebase.firestore
+    val firestore = Firebase.firestore
     private const val TAG = "FirebaseUtils"
 
     /**

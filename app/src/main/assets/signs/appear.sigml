@@ -1,0 +1,32 @@
+﻿<!--      -->
+<!--  Mouth: D07  -->
+<!--  Limbs: TB  -->
+<!--   Face:  RB  	-->
+
+<sigml>
+ <hns_sign gloss="">
+  <hamnosys_nonmanual>
+   <hnm_mouthpicture picture="@&quot;pI@r"/>
+   <hnm_body tag="TB"/>
+   <hnm_eyebrows tag="RB"/>
+  </hamnosys_nonmanual>
+  <hamnosys_manual>
+   <hamfinger2/>
+   <hamthumbacrossmod/>
+   <hamextfingeru/>
+   <hampalmd/>
+   <hamcheek/>
+   <hamlrbeside/>
+   <hambetween/>
+   <hamheadtop/>
+   <hamlrbeside/>
+   <hamclose/>
+   <hamreplace/>
+   <hamextfingeru/>
+   <hampalmu/>
+   <hameyes/>
+   <hamclose/>
+  </hamnosys_manual>
+ </hns_sign>
+
+</sigml>

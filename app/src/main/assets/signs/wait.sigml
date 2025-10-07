@@ -1,0 +1,6 @@
+﻿<sigml>  <!--  --> <hns_sign gloss="" > 
+<hamnosys_nonmanual>	<hnm_mouthpicture picture="weI"/>
+			<hnm_head tag="NO"/>
+			<hnm_eyebrows tag="FU"/>
+			<hnm_nose tag="WR"/>
+		</hamnosys_nonmanual><hamnosys_manual><hamflathand/><hambetween/><hamflathand/><hamthumboutmod/><hamextfingeru/><hampalmd/><hamshoulders/><hambetween/><hamshouldertop/><hamclose/><hamreplace/><hamextfingeru/><hampalmd/><hamshoulders/><hambetween/><hamchest/><hamrepeatfromstart/></hamnosys_manual></hns_sign></sigml>

@@ -1,0 +1,20 @@
+<!---->
+<sigml>
+	<hns_sign gloss="">
+		<hamnosys_nonmanual>
+			<hnm_mouthgesture tag="L04"/>
+			<hnm_head tag="NF"/>
+		</hamnosys_nonmanual>
+		<hamnosys_manual>
+			<hamfinger2/>
+			<hamthumboutmod/>
+			<hamextfingerul/>
+			<hampalml/>
+			<hamshoulders/>
+			<hamcircleol/>
+			<hamcircleol/>
+			<hamcircleol/>
+		</hamnosys_manual>
+	</hns_sign>
+
+</sigml>

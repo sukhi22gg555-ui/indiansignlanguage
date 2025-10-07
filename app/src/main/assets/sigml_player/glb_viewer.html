@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Offline ISL Avatar (GLB Viewer)</title>
+  <style>
+    html, body { height: 100%; margin: 0; font-family: system-ui, Arial, sans-serif; }
+    body { display: flex; flex-direction: column; background: #eef2ff; }
+    #topbar { padding: 8px 12px; background: #fff; border-bottom: 1px solid #e5e7eb; font-size: 12px; color: #334155; }
+    #container { position: relative; flex: 1; display: flex; align-items: center; justify-content: center; }
+    #canvas { width: 100%; height: 100%; display: none; }
+    #fallback { text-align: center; color: #475569; padding: 24px; }
+    #fallback img { width: 180px; height: auto; border-radius: 12px; box-shadow: 0 6px 20px rgba(0,0,0,0.1); display: none; }
+    #status { position: absolute; bottom: 8px; left: 8px; right: 8px; text-align: center; font-size: 12px; color: #0f172a; }
+    .badge { display: inline-block; padding: 2px 6px; border-radius: 6px; background: #e0e7ff; color: #1e40af; margin: 0 4px; }
+  </style>
+</head>
+<body>
+  <div id="topbar">ISL Avatar (offline) — Signing: <span id="signedText">(none)</span></div>
+  <div id="container">
+    <canvas id="canvas"></canvas>
+    <div id="fallback">
+      <div style="font-size:32px; margin-bottom:10px;">👤</div>
+      <div id="fallbackText" style="margin-bottom:10px;">Avatar viewer not initialized.</div>
+      <div style="font-size:12px; color:#64748b;">
+        Drop files into assets/sigml_player to enable 3D avatar:<br/>
+        <span class="badge">lib/three.min.js</span>
+        <span class="badge">lib/GLTFLoader.js</span>
+        <span class="badge">avatar.glb</span>
+        <span class="badge">animations.json</span>
+      </div>
+    </div>
+    <div id="status"></div>
+  </div>
+
+  <script>
+    const qs = new URLSearchParams(location.search);
+    const raw = qs.get('text') || '';
+    const text = decodeURIComponent(raw);
+    const words = text.toLowerCase().split(/[^a-z0-9_]+/).filter(Boolean);
+    document.getElementById('signedText').textContent = text || '(none)';
+
+    const statusEl = document.getElementById('status');
+    function setStatus(msg) { statusEl.textContent = msg; }
+
+    function loadScript(src) { return new Promise((res, rej)=>{ const s=document.createElement('script'); s.src=src; s.onload=res; s.onerror=rej; document.head.appendChild(s); }); }
+    async function maybeInitThree(){ try{ await loadScript('lib/three.min.js'); await loadScript('lib/GLTFLoader.js'); return true; }catch(e){ return false; } }
+    async function fetchAnimMap(){ try{ const r=await fetch('animations.json'); if(!r.ok) throw 0; return await r.json(); }catch(e){ return {}; } }
+
+    function playSequence(mixer, clipsByName, sequence, speed){ let i=0; (function next(){ if(i>=sequence.length) return; const name=sequence[i]; const clip=clipsByName[name]; if(!clip){ i++; return next(); } const action=mixer.clipAction(clip); action.reset(); action.clampWhenFinished=true; action.setEffectiveTimeScale(speed); action.setLoop(THREE.LoopOnce,0); action.play(); const dur=clip.duration*1000/speed; setTimeout(()=>{ action.stop(); i++; next(); }, dur+50); })(); }
+
+    async function init(){
+      const hasThree = await maybeInitThree();
+      const canvas = document.getElementById('canvas');
+      const fallback = document.getElementById('fallback');
+      if(!hasThree){ document.getElementById('fallbackText').textContent='3D libraries not found. Showing fallback.'; setStatus('Add lib/three.min.js and lib/GLTFLoader.js.'); return; }
+
+      const renderer = new THREE.WebGLRenderer({ canvas, antialias:true, alpha:true });
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio||1,2));
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(35, 1, 0.1, 100); camera.position.set(0,1.4,2.2);
+      scene.add(new THREE.HemisphereLight(0xffffff,0x445566,1)); const d=new THREE.DirectionalLight(0xffffff,0.8); d.position.set(2,4,3); scene.add(d);
+      function resize(){ const r=canvas.getBoundingClientRect(); const w=r.width||window.innerWidth; const h=r.height||(window.innerHeight-44); renderer.setSize(w,h,false); camera.aspect=w/h; camera.updateProjectionMatrix(); }
+      window.addEventListener('resize', resize);
+
+      let mixer=null; let clipsByName={};
+      const loader = new THREE.GLTFLoader(); setStatus('Loading avatar.glb ...');
+      loader.load('avatar.glb', (gltf)=>{
+        const model = gltf.scene || gltf.scenes[0]; model.traverse(o=>{ if(o.isMesh){ o.castShadow=true; o.receiveShadow=true; }}); scene.add(model);
+        mixer = new THREE.AnimationMixer(model); const clips=gltf.animations||[]; clipsByName=Object.fromEntries(clips.map(c=>[c.name,c]));
+        canvas.style.display='block'; fallback.style.display='none'; resize();
+        const clock=new THREE.Clock(); (function tick(){ const dt=clock.getDelta(); if(mixer) mixer.update(dt); renderer.render(scene,camera); requestAnimationFrame(tick); })();
+        fetchAnimMap().then(map=>{ const seq=[]; for(const w of words){ const n = map[w] || map[w.replace(/_/g,' ')] || map[w.replace(/\s+/g,'_')]; if(n) seq.push(n); } if(seq.length===0 && clips.length>0){ seq.push(clips[0].name); } if(seq.length>0){ setStatus('Playing '+seq.length+' clip(s).'); playSequence(mixer, clipsByName, seq, 1.0); } else { setStatus('No matching animations for the given text.'); } });
+      }, undefined, (err)=>{ document.getElementById('fallbackText').textContent='avatar.glb not found. Showing fallback.'; setStatus('Place avatar.glb in assets/sigml_player'); });
+    }
+
+    init();
+  </script>
+</body>
+</html>

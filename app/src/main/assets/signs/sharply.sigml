@@ -1,0 +1,37 @@
+<!---->
+<sigml>
+	<hns_sign gloss="">
+		<hamnosys_nonmanual>
+			<hnm_head tag="SL"/>
+			<hnm_shoulder tag="UR"/>
+			<hnm_eyelids tag="TB"/>
+		</hamnosys_nonmanual>
+		<hamnosys_manual>
+			<hamfinger2345/>
+			<hamthumboutmod/>
+			<hamextfingeru/>
+			<hampalmul/>
+			<hamear/>
+			<hamlrbeside/>
+			<hambetween/>
+			<hamhead/>
+			<hamreplace/>
+			<hampinch12open/>
+			<hamextfingerol/>
+			<hampalmul/>
+			<hamhead/>
+			<hambetween/>
+			<hamshouldertop/>
+			<hamreplace/>
+			<hamfinger2345/>
+			<hamthumboutmod/>
+			<hamextfingeru/>
+			<hampalmul/>
+			<hamearlobe/>
+			<hamlrbeside/>
+			<hambetween/>
+			<hamhead/>
+		</hamnosys_manual>
+	</hns_sign>
+
+</sigml>

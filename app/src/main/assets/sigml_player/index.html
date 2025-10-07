@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Offline SiGML Avatar</title>
+  <style>
+    body { margin:0; font-family:Arial, sans-serif; background:#f0f5ff; display:flex; align-items:center; justify-content:center; min-height:100vh; }
+    .card { background:#fff; padding:20px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1); width:min(520px, 92vw); }
+    .avatar { width:140px; height:140px; border-radius:50%; background:linear-gradient(135deg, #4CAF50, #2e7d32); display:flex; align-items:center; justify-content:center; color:#fff; font-size:56px; margin:0 auto 16px; }
+    .title { text-align:center; font-weight:700; color:#1d2b4f; margin-bottom:6px; }
+    .subtitle { text-align:center; color:#75819d; font-size:14px; margin-bottom:14px; }
+    .text { text-align:center; color:#1d2b4f; font-weight:600; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="avatar">🤟</div>
+    <div class="title">Offline Avatar</div>
+    <div class="subtitle">Bundle your WebGL/JS SiGML player here</div>
+    <div id="signText" class="text"></div>
+  </div>
+  <script>
+    const params = new URLSearchParams(location.search);
+    const text = params.get('text') || 'Hello';
+    document.getElementById('signText').textContent = 'Signing: "' + text + '"';
+    // TODO: Initialize your real JS/WebGL SiGML runtime and play the sign(s) here.
+  </script>
+</body>
+</html>

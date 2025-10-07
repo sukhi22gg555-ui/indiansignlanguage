@@ -1,0 +1,68 @@
+<!--  --><sigml>   <hns_sign gloss="prosecutor" > <hamnosys_nonmanual></hamnosys_nonmanual><hamnosys_manual><hamfinger2/><hamthumboutmod/><hamfingerbendmod/><hambetween/><hamfinger2/><hamthumboutmod/><hamextfingero/><hambetween/><hamextfingerur/><hampalml/><hamheadtop/><hamlrbeside/><hambetween/><hamhead/><hamlrbeside/><hamparbegin/><hammoved/><hamfast/><hammoved/><hamlargemod/><hamparend/></hamnosys_manual></hns_sign><!--  -->  <hns_sign gloss="mug" > <hamnosys_nonmanual></hamnosys_nonmanual><hamnosys_manual><hamfinger2/><hamthumbacrossmod/><hamextfingeru/><hampalmu/><hamneck/><hambetween/><hamshoulders/><hamcircleu/><hamsmallmod/><hamrepeatfromstart/></hamnosys_manual>
+</hns_sign><!--  -->   <hns_sign gloss="prosecute" > <hamnosys_nonmanual><hnm_mouthpicture picture="lOj@(r)"/></hamnosys_nonmanual><hamnosys_manual><hamsymmlr/><hamparbegin/><hamfinger23/><hambetween/><hamfinger23spread/><hamextfingeril/><hampalmdr/><hamplus/><hamfinger23/><hambetween/><hamfinger23spread/><hamextfingerir/><hampalmdl/><hamparend/><hamneck/><hamtouch/><hamparbegin/><hammovedr/><hamlargemod/><hamshoulders/><hamlrat/><hamplus/><hammovedl/><hamlargemod/><hamlrat/><hamshoulders/><hamparend/></hamnosys_manual></hns_sign><!--  --> <hns_sign gloss="mug" > <hamnosys_nonmanual><hnm_head tag="TR"></hnm_head><hnm_body tag="TR"></hnm_body></hamnosys_nonmanual><hamnosys_manual><hamsymmlr/><hamfingerstraightmod/><hamlargemod/><hamfist/><hamthumboutmod/><hamextfingero/><hampalmd/><hamtouch/><hamchest/><hambetween/><hamshoulders/><hamlrat/><hamcirclel/><hamsmallmod/><hamrepeatfromstartseveral/></hamnosys_manual></hns_sign><!--  -->
+
+	<hns_sign gloss="do">
+		<hamnosys_nonmanual>
+			<hnm_mouthpicture picture="duo"/>
+			<hnm_head tag="TR"/>
+			
+		</hamnosys_nonmanual>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hamparbegin/>
+			<hamfinger2/>
+			<hamthumbopenmod/>
+			<hamfingerbendmod/>
+			<hambetween/>
+			<hamfinger2/>
+			<hamthumbopenmod/>
+			<hamplus/>
+			<hamfinger2/>
+			<hamthumbacrossmod/>
+			<hamparend/>
+			<hamparbegin/>
+			<hamextfingerul/>
+			<hampalmd/>
+			<hamplus/>
+			<hamextfingeru/>
+			<hampalmr/>
+			<hamparend/>
+			<hamparbegin/>
+			<hamfingerpad/>
+			<hamplus/>
+			<hamfingerpad/>
+			<hamparend/>
+			<hamtouch/>
+			<hamlips/>
+			<hamclose/>
+			<hamparbegin/>
+			<hamreplace/>
+			<hamfinger2/>
+			<hamthumbopenmod/>
+			<hamfingerbendmod/>
+			<hambetween/>
+			<hamfinger2/>
+			<hamthumbopenmod/>
+			<hamextfingerul/>
+			<hampalmd/>
+			<hamplus/>
+			<hamreplace/>
+			<hamfinger2/>
+			<hamthumbacrossmod/>
+			<hamextfingeru/>
+			<hampalmr/>
+			<hamparend/>
+			<hamplus/>
+			<hampinch12/>
+			<hambetween/>
+			<hampinch12/>
+			<hamfingerstraightmod/>
+			<hamextfingeru/>
+			<hampalml/>
+			<hamunderchin/>
+			<hamlrat/>
+			<hambetween/>
+			<hamneck/>
+			<hamlrat/>
+		</hamnosys_manual>
+	</hns_sign></sigml>

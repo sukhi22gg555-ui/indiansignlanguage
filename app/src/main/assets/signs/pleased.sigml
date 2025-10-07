@@ -1,0 +1,23 @@
+<!---->
+<sigml>
+	<hns_sign gloss="pleased">
+		<hamnosys_nonmanual>
+			<hnm_mouthpicture picture="pli:zd"/>
+		</hamnosys_nonmanual>
+		<hamnosys_manual>
+			<hampinchall/>
+			<hamextfingerl/>
+			<hampalmu/>
+			<hamchest/>
+			<hamreplace/>
+			<hamfinger2345/>
+			<hamthumbopenmod/>
+			<hamextfingerl/>
+			<hampalmu/>
+			<hamshouldertop/>
+			<hambetween/>
+			<hamshoulders/>
+		</hamnosys_manual>
+	</hns_sign>
+
+</sigml>

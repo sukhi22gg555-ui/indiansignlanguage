@@ -1,0 +1,35 @@
+<sigml> <!--  -->  <hns_sign gloss="" > <hamnosys_nonmanual><hnm_moutgesture tag = "L19"/></hamnosys_nonmanual><hamnosys_manual><hamsymmlr/><hamfingerstraightmod/><hamlargemod/><hamfinger2345/><hamthumboutmod/><hamparbegin/><hamextfingerur/><hampalmu/><hamplus/><hamextfingerur/><hampalmd/><hamparend/><hamshouldertop/><hamlrbeside/><hambetween/><hamhead/><hamreplace/><hamparbegin/><hamextfingerul/><hampalmd/><hamplus/><hamextfingerul/><hampalmu/><hamparend/><hamslow/><hamrepeatfromstartseveral/></hamnosys_manual></hns_sign><!---->
+
+	<hns_sign gloss="">
+		<hamnosys_nonmanual>
+			<hnm_mouthpicture picture="pi:"/>
+		</hamnosys_nonmanual>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hamparbegin/>
+			<hampinch12/>
+			<hamplus/>
+			<hamfinger2/>
+			<hamthumbacrossmod/>
+			<hamparend/>
+			<hamparbegin/>
+			<hamextfingerul/>
+			<hamplus/>
+			<hamextfingeru/>
+			<hamparend/>
+			<hamparbegin/>
+			<hampalmdr/>
+			<hamplus/>
+			<hampalmr/>
+			<hamparend/>
+			<hamparbegin/>
+			<hamfingertip/>
+			<hamplus/>
+			<hamfingertip/>
+			<hamparend/>
+			<hamtouch/>
+			<hamshoulders/>
+		</hamnosys_manual>
+	</hns_sign>
+
+  <!--  --> <hns_sign gloss="mug" > <hamnosys_nonmanual></hamnosys_nonmanual><hamnosys_manual><hampinchall/><hamfingerstraightmod/><hamextfingerd/><hambetween/><hamextfingerdo/><hampalmd/><hamstomach/><hamlrbeside/><hambetween/><hamchest/><hamlrat/><hamparbegin/><hamreplace/><hamceeall/><hamthumboutmod/><hampalmd/><hamparend/><hamrepeatfromstartseveral/></hamnosys_manual></hns_sign></sigml>

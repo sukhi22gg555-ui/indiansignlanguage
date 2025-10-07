@@ -1,0 +1,100 @@
+{
+  "metadata": {
+    "total_signs": 3318,
+    "version": "1.0",
+    "last_updated": "2025-10-05",
+    "categories": {
+      "numbers": "Numeric signs (0-9, 10, 20, 100, etc.)",
+      "letters": "Alphabetic signs (a-z)",
+      "words": "Single word signs (hello, good, bad, etc.)",
+      "phrases": "Multi-word phrases (good_morning, thank_you, etc.)"
+    },
+    "video_format": {
+      "format": "mp4",
+      "resolution": "1920x1080",
+      "fps": 30,
+      "estimated_size": "15GB total"
+    }
+  },
+  "signs": {
+    "0": {
+      "name": "zero",
+      "display_name": "Zero",
+      "video_path": "signs/numbers/0.mp4",
+      "category": "numbers",
+      "description": "The number zero in Indian Sign Language",
+      "tags": ["number", "numeric", "digit"],
+      "difficulty": "beginner"
+    },
+    "1": {
+      "name": "one",
+      "display_name": "One", 
+      "video_path": "signs/numbers/1.mp4",
+      "category": "numbers",
+      "description": "The number one in Indian Sign Language",
+      "tags": ["number", "numeric", "digit"],
+      "difficulty": "beginner"
+    },
+    "hello": {
+      "name": "hello",
+      "display_name": "Hello",
+      "video_path": "signs/words/hello.mp4", 
+      "category": "words",
+      "description": "Hello greeting in Indian Sign Language",
+      "tags": ["greeting", "common", "basic"],
+      "difficulty": "beginner"
+    },
+    "good_morning": {
+      "name": "good_morning",
+      "display_name": "Good Morning",
+      "video_path": "signs/phrases/good_morning.mp4",
+      "category": "phrases", 
+      "description": "Good morning greeting phrase in Indian Sign Language",
+      "tags": ["greeting", "time", "morning", "phrase"],
+      "difficulty": "intermediate"
+    },
+    "a": {
+      "name": "a",
+      "display_name": "Letter A",
+      "video_path": "signs/letters/a.mp4",
+      "category": "letters",
+      "description": "The letter A in Indian Sign Language alphabet",
+      "tags": ["letter", "alphabet", "fingerspelling"],
+      "difficulty": "beginner"
+    }
+  },
+  "categories_list": [
+    {
+      "id": "numbers",
+      "name": "Numbers",
+      "description": "Numeric signs from 0 to large numbers",
+      "icon": "numbers_icon",
+      "estimated_count": 150
+    },
+    {
+      "id": "letters", 
+      "name": "Letters",
+      "description": "Alphabetic signs A-Z for fingerspelling",
+      "icon": "letters_icon",
+      "estimated_count": 26
+    },
+    {
+      "id": "words",
+      "name": "Words", 
+      "description": "Common single-word signs",
+      "icon": "words_icon",
+      "estimated_count": 2000
+    },
+    {
+      "id": "phrases",
+      "name": "Phrases",
+      "description": "Multi-word phrases and expressions", 
+      "icon": "phrases_icon",
+      "estimated_count": 1142
+    }
+  ],
+  "search_tags": [
+    "greeting", "numbers", "letters", "common", "basic", "intermediate", "advanced",
+    "family", "colors", "food", "animals", "emotions", "actions", "time", "weather"
+  ]
+}

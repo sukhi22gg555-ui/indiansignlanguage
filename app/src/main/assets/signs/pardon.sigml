@@ -1,0 +1,39 @@
+<!---->
+<sigml>
+	<hns_sign gloss="">
+		<hamnosys_nonmanual>
+			<hnm_mouthpicture picture="pA:dn"/>
+			<hnm_head tag="NF"/>
+		</hamnosys_nonmanual>
+		<hamnosys_manual>
+			<hamfinger2345/>
+			<hamthumboutmod/>
+			<hamextfingerul/>
+			<hampalmd/>
+			<hamhead/>
+			<hamlrbeside/>
+			<hambetween/>
+			<hamheadtop/>
+			<hamlrbeside/>
+			<hamcircleol/>
+			<hamlargemod/>
+			<hamreplace/>
+			<hampinchall/>
+			<hamextfingerui/>
+			<hampalmd/>
+			<hamhead/>
+			<hamlrbeside/>
+			<hambetween/>
+			<hamshouldertop/>
+			<hamlrbeside/>
+			<hamreplace/>
+			<hamfinger2345/>
+			<hamthumboutmod/>
+			<hamextfingerdo/>
+			<hampalmd/>
+			<hamstomach/>
+			<hamlrat/>
+		</hamnosys_manual>
+	</hns_sign>
+
+</sigml>

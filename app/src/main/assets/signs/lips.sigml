@@ -1,0 +1,27 @@
+﻿<!--        -->
+
+
+
+<sigml>
+	<hns_sign gloss="">
+		<hamnosys_manual>
+			<hamfinger2/>
+			<hamthumbacrossmod/>
+			<hamextfingeru/>
+			<hampalmu/>
+			<hamlips/>
+			<hamdoublebent/>
+			<hamlrat/>
+			<hamtouch/>
+			<hammovel/>
+			<hamarcu/>
+			<hamsmallmod/>
+			<hammover/>
+			<hamarcd/>
+			<hamsmallmod/>
+			<hammovel/>
+			<hamarcu/>
+			<hamsmallmod/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

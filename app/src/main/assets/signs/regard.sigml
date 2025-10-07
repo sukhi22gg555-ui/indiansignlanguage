@@ -1,0 +1,20 @@
+<sigml>
+	<!---->
+	<hns_sign gloss="">
+		<hamnosys_nonmanual>
+			<hnm_mouthpicture picture="rVgA:rd"/>
+			<hnm_head tag="NB"/>
+			<hnm_eyegaze tag="DN"/>
+			<hnm_eyelids tag="SB"/>
+		</hamnosys_nonmanual>
+		<hamnosys_manual>
+			<hamfinger2/>
+			<hamfingerstraightmod/>
+			<hamextfingeru/>
+			<hampalml/>
+			<hamunderchin/>
+			<hamtouch/>
+		</hamnosys_manual>
+	</hns_sign>
+
+</sigml>

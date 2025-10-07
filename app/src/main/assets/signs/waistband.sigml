@@ -1,0 +1,31 @@
+<sigml>
+<!---->
+<hns_sign gloss="">
+<hamnosys_nonmanual>
+<hnm_head tag="NF"/>
+<hnm_eyegaze tag="DN"/>
+<hnm_eyelids tag="SB"/>
+</hamnosys_nonmanual>
+<hamnosys_manual>
+<hamsymmpar/>
+<hampinch12/>
+<hamfingerstraightmod/>
+<hamparbegin/>
+<hamextfingerd/>
+<hampalmdl/>
+<hamplus/>
+<hamextfingerd/>
+<hampalmdr/>
+<hamparend/>
+<haminterlock/>
+<hambelowstomach/>
+<hamtouch/>
+<hamparbegin/>
+<hammover/>
+<hamplus/>
+<hammovel/>
+<hamparend/>
+</hamnosys_manual>
+</hns_sign>
+
+</sigml>

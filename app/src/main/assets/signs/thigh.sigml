@@ -1,0 +1,20 @@
+<!---->
+<sigml>
+	<hns_sign gloss="thigh">
+		<hamnosys_nonmanual>
+			<hnm_head tag="NF"/>
+			<hnm_eyelids tag="SB"/>
+		</hamnosys_nonmanual>
+		<hamnosys_manual>
+			<hamflathand/>
+			<hamextfingerdo/>
+			<hampalmd/>
+			<hambelowstomach/>
+			<hamlrat/>
+			<hammovei/>
+			<hamlargemod/>
+			<hamnodding/>
+		</hamnosys_manual>
+	</hns_sign>
+
+</sigml>

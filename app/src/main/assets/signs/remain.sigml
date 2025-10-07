@@ -1,0 +1,35 @@
+<!---->
+<sigml>
+	<hns_sign gloss="remain">
+		<hamnosys_nonmanual>
+			<hnm_mouthpicture picture="rIme_In"/>
+			<hnm_body tag="TF"/>
+			<hnm_head tag="SR"/>
+			<hnm_shoulder tag="UR"/>
+			<hnm_eyebrows tag="FU"/>
+		</hamnosys_nonmanual>
+		<hamnosys_manual>
+			<hamfinger23spread/>
+			<hamthumbacrossmod/>
+			<hamextfingeruo/>
+			<hampalml/>
+			<hamshoulders/>
+			<hamreplace/>
+			<hamextfingero/>
+			<hampalml/>
+			<hamreplace/>
+			<hamextfingeruo/>
+			<hampalml/>
+			<hamreplace/>
+			<hamextfingero/>
+			<hampalml/>
+			<hamreplace/>
+			<hamextfingeruo/>
+			<hampalml/>
+			<hamreplace/>
+			<hamextfingero/>
+			<hampalml/>
+		</hamnosys_manual>
+	</hns_sign>
+
+</sigml>

@@ -15,6 +15,7 @@ import com.example.indiansignlanguage.ui.theme.IndianSignLanguageTheme
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContent {
             IndianSignLanguageTheme {
                 Surface(
@@ -22,21 +23,16 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
                     val navController = rememberNavController()
-                    NavHost(navController = navController, startDestination = "login") {
+
+                    NavHost(navController = navController, startDestination = "main") {
                         composable("login") {
                             LoginScreen(navController = navController)
                         }
                         composable("signup") {
                             SimpleSignUpScreen(navController = navController)
                         }
-                        composable("Home") {
-                            HomeScreen(navController = navController)
-                        }
-                        composable("profile") {
-                            ProfileScreen(navController = navController)
-                        }
-                        composable("modules") {
-                            Modules(navController = navController)
+                        composable("main") {
+                            MainScreen(parentNavController = navController)
                         }
                         composable("numbers") {
                             NumbersScreen(navController = navController)
@@ -44,8 +40,14 @@ class MainActivity : ComponentActivity() {
                         composable("greetings") {
                             GreetingsScreen(navController = navController)
                         }
-                        composable("translator") {
-                            TranslatorScreen(navController = navController)
+                        composable("alphabets") {
+                            AlphabetsScreen(navController = navController)
+                        }
+                        composable("commonwords") {
+                            CommonWordsScreen(navController = navController)
+                        }
+                        composable("settings") {
+                            SettingsScreen(navController = navController)
                         }
                     }
                 }
