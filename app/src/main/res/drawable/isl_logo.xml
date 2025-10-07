@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="200dp"
+    android:height="200dp"
+    android:viewportWidth="200"
+    android:viewportHeight="200">
+    
+    <!-- Background circle -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M100,20 C144.2,20 180,55.8 180,100 C180,144.2 144.2,180 100,180 C55.8,180 20,144.2 20,100 C20,55.8 55.8,20 100,20 Z" />
+    
+    <!-- Person's head with Indian flag colors -->
+    <path
+        android:fillColor="#FF9933"
+        android:strokeColor="#333333"
+        android:strokeWidth="2"
+        android:pathData="M100,45 C115,40 130,45 135,60 C135,65 130,70 125,70 L75,70 C70,70 65,65 65,60 C65,45 80,40 100,45 Z" />
+    
+    <!-- Face -->
+    <path
+        android:fillColor="#FDBCB4"
+        android:strokeColor="#333333"
+        android:strokeWidth="2"
+        android:pathData="M100,85m-22,0a22,25 0,1 1,44 0a22,25 0,1 1,-44 0" />
+    
+    <!-- Eye -->
+    <path
+        android:fillColor="#333333"
+        android:pathData="M100,82m-3,0a3,3 0,1 1,6 0a3,3 0,1 1,-6 0" />
+    
+    <!-- Green stripe -->
+    <path
+        android:fillColor="#138808"
+        android:pathData="M85,75 L115,75 L115,79 L85,79 Z" />
+    
+    <!-- Left hand -->
+    <path
+        android:fillColor="#FDBCB4"
+        android:strokeColor="#333333"
+        android:strokeWidth="2"
+        android:pathData="M50,135m-15,0a15,18 0,1 1,30 0a15,18 0,1 1,-30 0" />
+    
+    <!-- Right hand -->
+    <path
+        android:fillColor="#FDBCB4"
+        android:strokeColor="#333333"
+        android:strokeWidth="2"
+        android:pathData="M150,135m-15,0a15,18 0,1 1,30 0a15,18 0,1 1,-30 0" />
+    
+    <!-- Connection lines -->
+    <path
+        android:strokeColor="#4CAF50"
+        android:strokeWidth="3"
+        android:pathData="M75,135 Q100,125 125,135" />
+    
+    <path
+        android:strokeColor="#4CAF50"
+        android:strokeWidth="2"
+        android:pathData="M70,130 Q100,120 130,130" />
+    
+    <!-- Title -->
+    <path
+        android:fillColor="#333333"
+        android:pathData="M50,165 L150,165 L150,167 L50,167 Z" />
+    
+    <path
+        android:fillColor="#666666"
+        android:pathData="M70,178 L130,178 L130,180 L70,180 Z" />
+
+</vector>

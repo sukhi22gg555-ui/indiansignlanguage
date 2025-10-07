@@ -6,6 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
+import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -22,32 +23,40 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    val navController = rememberNavController()
+                    var showSplash by remember { mutableStateOf(true) }
+                    
+                    if (showSplash) {
+                        SplashScreen {
+                            showSplash = false
+                        }
+                    } else {
+                        val navController = rememberNavController()
 
-                    NavHost(navController = navController, startDestination = "main") {
-                        composable("login") {
-                            LoginScreen(navController = navController)
-                        }
-                        composable("signup") {
-                            SimpleSignUpScreen(navController = navController)
-                        }
-                        composable("main") {
-                            MainScreen(parentNavController = navController)
-                        }
-                        composable("numbers") {
-                            NumbersScreen(navController = navController)
-                        }
-                        composable("greetings") {
-                            GreetingsScreen(navController = navController)
-                        }
-                        composable("alphabets") {
-                            AlphabetsScreen(navController = navController)
-                        }
-                        composable("commonwords") {
-                            CommonWordsScreen(navController = navController)
-                        }
-                        composable("settings") {
-                            SettingsScreen(navController = navController)
+                        NavHost(navController = navController, startDestination = "main") {
+                            composable("login") {
+                                LoginScreen(navController = navController)
+                            }
+                            composable("signup") {
+                                SimpleSignUpScreen(navController = navController)
+                            }
+                            composable("main") {
+                                MainScreen(parentNavController = navController)
+                            }
+                            composable("numbers") {
+                                NumbersScreen(navController = navController)
+                            }
+                            composable("greetings") {
+                                GreetingsScreen(navController = navController)
+                            }
+                            composable("alphabets") {
+                                AlphabetsScreen(navController = navController)
+                            }
+                            composable("commonwords") {
+                                CommonWordsScreen(navController = navController)
+                            }
+                            composable("settings") {
+                                SettingsScreen(navController = navController)
+                            }
                         }
                     }
                 }
