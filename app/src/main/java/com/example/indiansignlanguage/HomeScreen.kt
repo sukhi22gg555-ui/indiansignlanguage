@@ -212,8 +212,8 @@ fun SearchBar(navController: NavController) {
                 onSearch = {
                     if (searchText.isNotBlank()) {
                         keyboardController?.hide()
-                        val encodedText = URLEncoder.encode(searchText, StandardCharsets.UTF_8.toString())
-                        navController.navigate("translator/$encodedText")
+                        // Navigate to the translator screen (no route parameter in this graph)
+                        navController.navigate("translator")
                     }
                 }
             )

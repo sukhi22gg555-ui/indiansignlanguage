@@ -32,8 +32,28 @@ fun MainScreen(parentNavController: NavController) {
             composable("modules") {
                 Modules(navController = navController)
             }
+            // Translator can be reached directly or with an optional query segment
             composable("translator") {
                 TranslatorScreen(navController = navController)
+            }
+            composable("translator/{query}") {
+                TranslatorScreen(navController = navController)
+            }
+            // Add missing learning destinations so navigation from Home/Modules works
+            composable("commonwords") {
+                CommonWordsScreen(navController = navController)
+            }
+            composable("numbers") {
+                NumbersScreen(navController = navController)
+            }
+            composable("greetings") {
+                GreetingsScreen(navController = navController)
+            }
+            composable("alphabets") {
+                AlphabetsScreen(navController = navController)
+            }
+            composable("settings") {
+                SettingsScreen(navController = navController)
             }
             composable("profile") {
                 ProfileScreen(navController = navController)
