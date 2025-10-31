@@ -3,15 +3,35 @@ package com.example.indiansignlanguage
 import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material.icons.filled.Person
-import androidx.compose.material3.*
-import androidx.compose.runtime.*
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -23,10 +43,10 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
 import com.example.indiansignlanguage.data.UserProfile
 import com.example.indiansignlanguage.utils.FirebaseUtils
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.launch
 
 /**
@@ -81,14 +101,14 @@ fun SimpleSignUpScreen(navController: NavController) {
                     completedModules = emptyList(),
                     achievements = emptyList()
                 )
-                
+
                 // Save user profile to Firestore
                 coroutineScope.launch {
                     FirebaseUtils.saveUserProfile(userProfile).fold(
                         onSuccess = {
                             isLoading = false
                             Toast.makeText(context, "Account created successfully! You can now login.", Toast.LENGTH_LONG).show()
-                            
+
                             // Navigate to login immediately
                             navController.navigate("login") {
                                 popUpTo("signup") { inclusive = true }
@@ -98,7 +118,7 @@ fun SimpleSignUpScreen(navController: NavController) {
                         onFailure = { error ->
                             isLoading = false
                             Toast.makeText(context, "Account created but profile setup failed: ${error.message}", Toast.LENGTH_LONG).show()
-                            
+
                             // Still navigate to login
                             navController.navigate("login") {
                                 popUpTo("signup") { inclusive = true }
@@ -129,9 +149,9 @@ fun SimpleSignUpScreen(navController: NavController) {
                 .size(100.dp)
                 .padding(bottom = 8.dp)
         )
-        
+
         Text(
-            text = "Create Account (Simple)",
+            text = "Create Account",
             style = MaterialTheme.typography.headlineSmall,
             fontWeight = FontWeight.Bold,
             color = Color(0xFF333333),
@@ -141,7 +161,7 @@ fun SimpleSignUpScreen(navController: NavController) {
         OutlinedTextField(
             value = fullName,
             onValueChange = { fullName = it },
-            label = { Text("Full Name (Optional)") },
+            label = { Text("Full Name ") },
             leadingIcon = { Icon(Icons.Default.Person, contentDescription = "Full Name Icon") },
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text),
             singleLine = true,
@@ -203,7 +223,7 @@ fun SimpleSignUpScreen(navController: NavController) {
                     modifier = Modifier.size(24.dp)
                 )
             } else {
-                Text("Create Account (Auth Only)", color = Color.White, fontSize = 16.sp, fontWeight = FontWeight.SemiBold)
+                Text("Create Account", color = Color.White, fontSize = 16.sp, fontWeight = FontWeight.SemiBold)
             }
         }
 

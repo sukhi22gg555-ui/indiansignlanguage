@@ -1,19 +1,45 @@
 package com.example.indiansignlanguage
 
+import android.util.Log
 import androidx.compose.foundation.Canvas
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material.icons.filled.Book
+import androidx.compose.material.icons.automirrored.filled.Logout
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.EmojiEvents
-import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Person
-import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Settings
-import androidx.compose.material3.*
-import androidx.compose.runtime.*
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarDefaults
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -25,12 +51,12 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.indiansignlanguage.data.UserProfile
 import com.example.indiansignlanguage.utils.FirebaseUtils
 import kotlinx.coroutines.launch
-import android.util.Log
 
 // Define colors for easy access and modification
 val primaryBlue = Color(0xFF0D62FF)
@@ -41,12 +67,16 @@ val backgroundColor = Color(0xFFF7F9FC)
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ProfileScreen(navController: NavController) {
+fun ProfileScreen(
+    navController: NavController,
+    authViewModel: AuthViewModel = viewModel(),
+    rootNavController: NavController? = null
+) {
     // Log when ProfileScreen loads
     LaunchedEffect(Unit) {
         Log.d("Navigation", "ProfileScreen composable loaded and displayed")
     }
-    
+
     var userProfile by remember { mutableStateOf<UserProfile?>(null) }
     var isLoading by remember { mutableStateOf(true) }
     val coroutineScope = rememberCoroutineScope()
@@ -69,17 +99,17 @@ fun ProfileScreen(navController: NavController) {
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { 
+                title = {
                     Text(
-                        "Profile", 
+                        "Profile",
                         fontWeight = FontWeight.SemiBold,
                         color = darkText
-                    ) 
+                    )
                 },
                 navigationIcon = {
                     IconButton(onClick = { navController.popBackStack() }) {
                         Icon(
-                            Icons.AutoMirrored.Filled.ArrowBack, 
+                            Icons.AutoMirrored.Filled.ArrowBack,
                             contentDescription = "Back",
                             tint = darkText
                         )
@@ -119,7 +149,7 @@ fun ProfileScreen(navController: NavController) {
 
                 Spacer(Modifier.height(32.dp))
 
-                ActionButtons(navController)
+                ActionButtons(navController, authViewModel, rootNavController)
 
                 Spacer(Modifier.height(16.dp))
             }
@@ -192,7 +222,7 @@ fun ProgressCircle(userProfile: UserProfile?) {
     val totalLessonsTarget = 100
     val completedLessons = userProfile?.totalLessonsCompleted ?: 0
     val progress = (completedLessons.toFloat() / totalLessonsTarget).coerceAtMost(1f)
-    
+
     Box(
         contentAlignment = Alignment.Center,
         modifier = Modifier.size(220.dp)
@@ -237,7 +267,7 @@ fun ProgressCircle(userProfile: UserProfile?) {
 
 
 @Composable
-fun ActionButtons(navController: NavController) {
+fun ActionButtons(navController: NavController, authViewModel: AuthViewModel, rootNavController: NavController?) {
     Card(
         modifier = Modifier.fillMaxWidth(),
         elevation = CardDefaults.cardElevation(defaultElevation = 0.dp),
@@ -250,16 +280,27 @@ fun ActionButtons(navController: NavController) {
             horizontalArrangement = Arrangement.SpaceEvenly,
             verticalAlignment = Alignment.CenterVertically
         ) {
-            ActionButton(icon = Icons.Default.EmojiEvents, text = "Achievements")
-            ActionButton(icon = Icons.Default.Close, text = "Review Mistakes")
-            ActionButton(icon = Icons.Default.Settings, text = "Settings")
+            ActionButton(icon = Icons.Default.EmojiEvents, text = "Achievements", onClick = {})
+            ActionButton(icon = Icons.Default.Close, text = "Review Mistakes", onClick = {})
+            ActionButton(icon = Icons.Default.Settings, text = "Settings", onClick = {})
+            ActionButton(icon = Icons.AutoMirrored.Filled.Logout, text = "Logout", onClick = {
+                authViewModel.logout()
+                val controller = rootNavController ?: navController
+                controller.navigate("login") {
+                    popUpTo("main") { inclusive = true }
+                    launchSingleTop = true
+                }
+            })
         }
     }
 }
 
 @Composable
-fun ActionButton(icon: ImageVector, text: String) {
-    Column(horizontalAlignment = Alignment.CenterHorizontally) {
+fun ActionButton(icon: ImageVector, text: String, onClick: () -> Unit) {
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = Modifier.clickable { onClick() }
+    ) {
         Icon(
             imageVector = icon,
             contentDescription = text,

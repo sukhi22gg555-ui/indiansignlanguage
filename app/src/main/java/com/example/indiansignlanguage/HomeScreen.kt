@@ -133,7 +133,7 @@ fun HomeScreen(navController: NavController) {
 
     Scaffold(
         topBar = { TopBar(navController) },
-        containerColor = Color(0xFFF2F2F7)
+        containerColor = Color(0xFFF2F2F2F7)
     ) { paddingValues ->
         if (isLoading) {
             Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
@@ -165,11 +165,6 @@ fun HomeScreen(navController: NavController) {
 fun TopBar(navController: NavController) {
     TopAppBar(
         title = { Text("Indian Sign Language", fontWeight = FontWeight.SemiBold) },
-        actions = {
-            IconButton(onClick = { navController.navigate("settings") }) {
-                Icon(Icons.Default.Person, contentDescription = "Settings")
-            }
-        },
         colors = TopAppBarDefaults.topAppBarColors(
             containerColor = Color.Transparent
         )
@@ -212,8 +207,7 @@ fun SearchBar(navController: NavController) {
                 onSearch = {
                     if (searchText.isNotBlank()) {
                         keyboardController?.hide()
-                        // Navigate to the translator screen (no route parameter in this graph)
-                        navController.navigate("translator")
+                        navController.navigate("commonwords")
                     }
                 }
             )
@@ -319,7 +313,7 @@ fun ProgressSection(progress: UserProgress, navController: NavController) {
 
                 Box(contentAlignment = Alignment.Center, modifier = Modifier.padding(horizontal = 10.dp)) {
                     CircularProgressIndicator(
-                        progress = { progress.progress }, // Corrected: Pass the float directly
+                        progress = progress.progress,
                         modifier = Modifier.size(60.dp),
                         strokeWidth = 6.dp,
                         color = Color(0xFF007AFF),
